@@ -47,7 +47,9 @@ Regole:
 
 ## 3. Contratto dati (condiviso con fuel-android e fuel-data)
 
-L'app consuma un unico file statico pubblicato dalla pipeline `fuel-data`. URL di produzione da definire (GitHub Pages / release asset / Cloudflare R2); in sviluppo configurabile tramite `xcconfig`.
+> Fonte di verità: [`FuelFinder_DATA/CONTRACT.md`](https://github.com/Leixien/FuelFinder_DATA/blob/main/CONTRACT.md). Questa sezione è una copia di comodo: in caso di differenze vale quella.
+
+L'app consuma un unico file statico pubblicato dalla pipeline `fuel-data`. URL di produzione: `https://leixien.github.io/FuelFinder_DATA/stations.json` (GitHub Pages), configurato in `Config/*.xcconfig` come `DATA_URL`.
 
 ### 3.1 `stations.json` — schema v1
 

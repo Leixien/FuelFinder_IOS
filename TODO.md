@@ -52,11 +52,11 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 - [ ] Apple Watch
 
 ## Richieste a fuel-data
-- [ ] Definire URL di produzione di `stations.json` e politica di cache/CDN
+- [x] URL di produzione: `https://leixien.github.io/FuelFinder_DATA/stations.json` (GitHub Pages, gzip + ETag)
 - [ ] Pubblicare anche una fixture ufficiale ridotta per i test dei client (quella attuale è generata a mano dai CSV del 2026-10-28)
-- [ ] Implementare la mappatura `descCarburante` → `fuel` estesa (`gnl`, `hvo`, L-GNC in `metano`): contratto aggiornato in `specificheTecniche.md` §3.1 il 2026-10-29
-- [ ] Tipo impianto "Pompe Bianche" nei CSV: confermare che diventi `altro`
-- [ ] Specificare la nullabilità di `brand`, `operator`, `name`, `address` (il client oggi li assume sempre presenti)
+- [x] Mappatura `descCarburante` → `fuel` estesa implementata in `FuelFinder_DATA` (vedi `CONTRACT.md`)
+- [x] "Pompe Bianche" e ogni tipo sconosciuto → `altro`
+- [x] Nullabilità: i campi stringa sono sempre presenti, mai `null`, eventualmente vuoti (oggi `name` vuoto per ~10 impianti: la UI deve gestirlo)
 
 ## Decisioni da confermare
 - Nome di lavoro "Fuel" e bundle id `com.leixien.fuel`: provvisori.
@@ -64,7 +64,7 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 
 - Swift 6 language mode (`SWIFT_VERSION = 6.0`) invece di Swift 5.10 + `SWIFT_STRICT_CONCURRENCY = complete`: stesso controllo, ma violazioni come errori. Alternativa scartata perché Xcode 27 / Swift 6.4 è già lo standard.
 - Simulatore di riferimento `iPhone 17` (non `iPhone 16`): con Xcode 27 `OS:latest` è iOS 27, dove iPhone 16 non esiste. In CI si sceglie il primo iPhone disponibile.
-- `DATA_URL` provvisorio `https://leixien.github.io/fuel-data/stations.json` (GitHub Pages di `fuel-data`), da sostituire quando la pipeline pubblica l'URL reale. Esposto all'app come chiave Info.plist `DataURL`.
+- `DATA_URL` = `https://leixien.github.io/FuelFinder_DATA/stations.json`, esposto all'app come chiave Info.plist `DataURL`.
 - Licenza cambiata da MIT (commit iniziale) ad Apache 2.0 come da `infoProgetto.md`.
 - Contatto del Code of Conduct: profilo GitHub del maintainer. Valutare un indirizzo email dedicato.
 - Modelli di dominio solo `Decodable` (non `Codable`): la cache salva i byte grezzi del JSON, quindi l'encoding non serve.
@@ -79,4 +79,5 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 - 2026-10-29: Fase 1 completata. CI verde al primo push. Fixture: 30 stazioni reali di NA/SA/CE/AV/BN dai CSV MIMIT del 2026-10-28 (separatore attuale `|`).
 
 ## Blocchi noti
-- [!] La pipeline `fuel-data` non esiste ancora: fino ad allora i client lavorano sulla fixture locale.
+- [!] La pipeline `FuelFinder_DATA` esiste ma il download dal MIMIT può essere bloccato (vedi il suo `TODO.md`): finché `stations.json` non è online l'app non ha dati reali.
+- Banner "dati vecchi" (Fase 2): basarlo su `prices_reference_date`, non su `generated_at` (la pipeline può ripubblicare dati vecchi con un `generated_at` nuovo).
