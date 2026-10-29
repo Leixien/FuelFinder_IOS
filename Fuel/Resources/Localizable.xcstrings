@@ -1,16 +1,56 @@
 {
-  "sourceLanguage" : "it",
-  "strings" : {
-    "Prezzi carburanti in arrivo" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fuel prices coming soon"
+  "sourceLanguage": "it",
+  "strings": {
+    "Connessione assente. Riprova più tardi.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No connection. Try again later."
+          }
+        }
+      }
+    },
+    "I dati ricevuti non sono validi.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The data received is not valid."
+          }
+        }
+      }
+    },
+    "I dati sono in un formato più recente: aggiorna l'app.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The data uses a newer format: please update the app."
+          }
+        }
+      }
+    },
+    "Il server dei dati non risponde (errore %lld).": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The data server is not responding (error %lld)."
+          }
+        }
+      }
+    },
+    "Prezzi carburanti in arrivo": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuel prices coming soon"
           }
         }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

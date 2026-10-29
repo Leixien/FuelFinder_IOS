@@ -1,0 +1,1369 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:30:00Z",
+  "prices_reference_date": "2026-10-27",
+  "source": {
+    "name": "MIMIT - Osservaprezzi Carburanti",
+    "license": "IODL 2.0",
+    "url": "https://www.mimit.gov.it/it/open-data/elenco-dataset/carburanti-prezzi-praticati-e-anagrafica-degli-impianti"
+  },
+  "fuel_types": [
+    "benzina",
+    "gasolio",
+    "gpl",
+    "metano",
+    "benzina_special",
+    "gasolio_special"
+  ],
+  "stations": [
+    {
+      "id": 3513,
+      "name": "S.PIETRO",
+      "brand": "Q8",
+      "operator": "SARNI S.R.L.",
+      "type": "autostradale",
+      "address": "Autostrada A1 MILANO-NAPOLI Ramo Capodichino, Km. 1+600, dir. Tangenzial - 80144",
+      "city": "NAPOLI",
+      "province": "NA",
+      "lat": 40.88415920489065,
+      "lon": 14.29818723411563,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.994,
+          "self": true,
+          "updated_at": "2026-10-26T05:30:31Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.204,
+          "self": false,
+          "updated_at": "2026-10-26T05:30:33Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.254,
+          "self": true,
+          "updated_at": "2026-10-26T05:30:32Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.464,
+          "self": false,
+          "updated_at": "2026-10-26T05:30:36Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.554,
+          "self": true,
+          "updated_at": "2026-10-26T05:30:39Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.294,
+          "self": true,
+          "updated_at": "2026-10-26T05:30:37Z",
+          "label": "HiQ Perform+"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.714,
+          "self": false,
+          "updated_at": "2026-10-26T05:30:40Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.474,
+          "self": false,
+          "updated_at": "2026-10-26T05:30:38Z",
+          "label": "HiQ Perform+"
+        }
+      ]
+    },
+    {
+      "id": 3515,
+      "name": "MASSERIA EST",
+      "brand": "Q8",
+      "operator": "SARNI S.R.L.",
+      "type": "autostradale",
+      "address": "Autostrada A1 MILANO-NAPOLI, Km. 754+000, dir. Nord - 80026",
+      "city": "CASORIA",
+      "province": "NA",
+      "lat": 40.891888397344644,
+      "lon": 14.318506530094282,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.994,
+          "self": true,
+          "updated_at": "2026-10-26T06:00:35Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.204,
+          "self": false,
+          "updated_at": "2026-10-26T06:00:40Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.254,
+          "self": true,
+          "updated_at": "2026-10-26T06:00:37Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.464,
+          "self": false,
+          "updated_at": "2026-10-26T06:00:41Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.554,
+          "self": true,
+          "updated_at": "2026-10-26T06:00:43Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.294,
+          "self": true,
+          "updated_at": "2026-10-26T06:00:42Z",
+          "label": "HiQ Perform+"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.714,
+          "self": false,
+          "updated_at": "2026-10-26T06:00:44Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.474,
+          "self": false,
+          "updated_at": "2026-10-26T06:00:43Z",
+          "label": "HiQ Perform+"
+        }
+      ]
+    },
+    {
+      "id": 3518,
+      "name": "CALAGGIO SUD",
+      "brand": "Agip Eni",
+      "operator": "RAUSEO GESTIONI S.A.S. DI RAUSEO GIUSEPPE",
+      "type": "autostradale",
+      "address": "Autostrada A16 NAPOLI-CANOSA, Km. 106+500, dir. Est - 83059",
+      "city": "VALLATA",
+      "province": "AV",
+      "lat": 41.06517482461935,
+      "lon": 15.31485556812288,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.99,
+          "self": true,
+          "updated_at": "2026-10-28T05:07:16Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.26,
+          "self": false,
+          "updated_at": "2026-10-27T05:21:10Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.19,
+          "self": true,
+          "updated_at": "2026-10-28T05:07:16Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.46,
+          "self": false,
+          "updated_at": "2026-10-27T05:21:10Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.709,
+          "self": true,
+          "updated_at": "2026-10-28T05:07:16Z",
+          "label": "Blue Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.934,
+          "self": false,
+          "updated_at": "2026-10-28T05:07:16Z",
+          "label": "Blue Diesel"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.949,
+          "self": false,
+          "updated_at": "2026-10-28T05:07:16Z"
+        }
+      ]
+    },
+    {
+      "id": 3654,
+      "name": "S.NICOLA OVEST",
+      "brand": "Sarni Oil",
+      "operator": "D.G. CARBURANTI S.A.S. DI ERRICO LUCIA & C.",
+      "type": "autostradale",
+      "address": "A1 MILANO-NAPOLI, Km. 737+200, Nord - 81020",
+      "city": "SAN NICOLA LA STRADA",
+      "province": "CE",
+      "lat": 41.04918429607012,
+      "lon": 14.321995675563812,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.989,
+          "self": true,
+          "updated_at": "2026-10-23T10:30:19Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.199,
+          "self": false,
+          "updated_at": "2026-10-23T10:30:18Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.299,
+          "self": true,
+          "updated_at": "2026-10-23T10:30:18Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.599,
+          "self": false,
+          "updated_at": "2026-10-23T10:30:17Z"
+        }
+      ]
+    },
+    {
+      "id": 3668,
+      "name": "S.NICOLA EST",
+      "brand": "Agip Eni",
+      "operator": "BORGHESE SERVICE S.R.L.",
+      "type": "autostradale",
+      "address": "Autostrada A1 MILANO-NAPOLI, Km. 737, dir. NORD 81020",
+      "city": "SAN NICOLA LA STRADA",
+      "province": "CE",
+      "lat": 41.05014665284766,
+      "lon": 14.322657899475075,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.99,
+          "self": true,
+          "updated_at": "2026-10-24T19:43:17Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.314,
+          "self": false,
+          "updated_at": "2026-10-24T19:43:17Z"
+        },
+        {
+          "fuel": "benzina_special",
+          "price": 2.14,
+          "self": true,
+          "updated_at": "2026-10-24T19:43:17Z",
+          "label": "Blue Super"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.19,
+          "self": true,
+          "updated_at": "2026-10-27T20:41:25Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.523,
+          "self": false,
+          "updated_at": "2026-10-27T20:41:25Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.29,
+          "self": true,
+          "updated_at": "2026-10-27T20:41:25Z",
+          "label": "Blue Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.19,
+          "self": true,
+          "updated_at": "2026-10-27T20:41:25Z",
+          "label": "HVOlution"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.623,
+          "self": false,
+          "updated_at": "2026-10-27T20:41:25Z",
+          "label": "Blue Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.523,
+          "self": false,
+          "updated_at": "2026-10-27T20:41:25Z",
+          "label": "HVOlution"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.893,
+          "self": false,
+          "updated_at": "2026-10-24T19:43:17Z"
+        },
+        {
+          "fuel": "metano",
+          "price": 2.059,
+          "self": false,
+          "updated_at": "2026-10-24T19:43:17Z"
+        }
+      ]
+    },
+    {
+      "id": 3680,
+      "name": "ANGIOINA OVEST",
+      "brand": "Tamoil",
+      "operator": "ALMA S.R.L.",
+      "type": "autostradale",
+      "address": "Autostrada A30 CASERTA-SALERNO, Km. 33+400, dir. Sud - 80040",
+      "city": "STRIANO",
+      "province": "NA",
+      "lat": 40.826956070989624,
+      "lon": 14.568405070114068,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 2.099,
+          "self": true,
+          "updated_at": "2026-10-26T08:39:12Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.379,
+          "self": false,
+          "updated_at": "2026-10-26T08:39:12Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.359,
+          "self": true,
+          "updated_at": "2026-10-26T08:39:12Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.649,
+          "self": false,
+          "updated_at": "2026-10-26T08:39:12Z"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.899,
+          "self": false,
+          "updated_at": "2026-10-26T08:39:12Z"
+        }
+      ]
+    },
+    {
+      "id": 3686,
+      "name": "IRPINIA NORD",
+      "brand": "Tamoil",
+      "operator": "IRPINIA CARBUROIL S.R.L.",
+      "type": "autostradale",
+      "address": "Autostrada A16 NAPOLI-CANOSA, Km. 44+200, dir. Ovest - 83100",
+      "city": "AVELLINO",
+      "province": "AV",
+      "lat": 40.926156813840905,
+      "lon": 14.782506880950905,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 2.099,
+          "self": true,
+          "updated_at": "2026-10-26T08:36:58Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.379,
+          "self": false,
+          "updated_at": "2026-10-26T08:36:58Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.359,
+          "self": true,
+          "updated_at": "2026-10-26T08:36:58Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.649,
+          "self": false,
+          "updated_at": "2026-10-26T08:36:58Z"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.929,
+          "self": false,
+          "updated_at": "2026-10-26T08:36:58Z"
+        }
+      ]
+    },
+    {
+      "id": 4023,
+      "name": "SCUDILLO OVEST",
+      "brand": "Esso",
+      "operator": "EDDY RISTOCAR S.R.L.",
+      "type": "autostradale",
+      "address": "Autostrada TANG.LE DI NAPOLI, Km. 14, dir. ovest - 80136",
+      "city": "NAPOLI",
+      "province": "NA",
+      "lat": 40.865729742550826,
+      "lon": 14.242064580321312,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 2.129,
+          "self": true,
+          "updated_at": "2026-10-25T17:28:54Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.434,
+          "self": false,
+          "updated_at": "2026-10-25T17:28:54Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.439,
+          "self": true,
+          "updated_at": "2026-10-25T17:28:54Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.744,
+          "self": false,
+          "updated_at": "2026-10-25T17:28:54Z"
+        }
+      ]
+    },
+    {
+      "id": 4109,
+      "name": "SUD PETROLI",
+      "brand": "Pompe Bianche",
+      "operator": "SUD ME.T.A.N.O. S.R.L.",
+      "type": "stradale",
+      "address": "ZONA INDUSTRIALE PONTE VALENTINO 82100",
+      "city": "BENEVENTO",
+      "province": "BN",
+      "lat": 41.142620739876676,
+      "lon": 14.832320809364319,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.989,
+          "self": true,
+          "updated_at": "2026-10-27T16:29:52Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.129,
+          "self": false,
+          "updated_at": "2026-10-27T16:29:52Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.339,
+          "self": true,
+          "updated_at": "2026-10-27T16:29:52Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.499,
+          "self": false,
+          "updated_at": "2026-10-27T16:29:52Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.579,
+          "self": true,
+          "updated_at": "2026-10-27T16:29:52Z",
+          "label": "Gasolio speciale"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.649,
+          "self": false,
+          "updated_at": "2026-10-27T16:29:52Z",
+          "label": "Gasolio speciale"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.799,
+          "self": true,
+          "updated_at": "2026-10-27T16:29:52Z"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.799,
+          "self": false,
+          "updated_at": "2026-10-27T16:29:52Z"
+        }
+      ]
+    },
+    {
+      "id": 4246,
+      "name": "ditta luigi picarella",
+      "brand": "Api-Ip",
+      "operator": "PICARELLA LUIGI",
+      "type": "stradale",
+      "address": "VIA SPIANO CURTERI SNC 84085",
+      "city": "MERCATO SAN SEVERINO",
+      "province": "SA",
+      "lat": 40.774974595297074,
+      "lon": 14.749284982681274,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 2.006,
+          "self": true,
+          "updated_at": "2026-10-28T05:07:17Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.206,
+          "self": false,
+          "updated_at": "2026-10-28T05:07:17Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.256,
+          "self": true,
+          "updated_at": "2026-10-28T05:07:17Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.456,
+          "self": false,
+          "updated_at": "2026-10-28T05:07:17Z"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.792,
+          "self": false,
+          "updated_at": "2026-10-28T05:07:17Z"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.697,
+          "self": false,
+          "updated_at": "2026-10-28T05:07:17Z"
+        }
+      ]
+    },
+    {
+      "id": 4265,
+      "name": "_SUDPETROLI1",
+      "brand": "Pompe Bianche",
+      "operator": "SUD PETROLI DI GAMBUTI ANGELO E SILVIO S.N.C.",
+      "type": "stradale",
+      "address": "VIA PROV. TELESE ALIFE 3 SP73 82030",
+      "city": "SAN SALVATORE TELESINO",
+      "province": "BN",
+      "lat": 41.22592105254809,
+      "lon": 14.481858015060425,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.989,
+          "self": true,
+          "updated_at": "2026-10-27T16:33:17Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.099,
+          "self": false,
+          "updated_at": "2026-10-27T16:33:17Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.339,
+          "self": true,
+          "updated_at": "2026-10-27T16:33:17Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.399,
+          "self": false,
+          "updated_at": "2026-10-27T16:33:17Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.449,
+          "self": true,
+          "updated_at": "2026-10-27T16:33:17Z",
+          "label": "Gasolio speciale"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.499,
+          "self": false,
+          "updated_at": "2026-10-27T16:33:17Z",
+          "label": "Gasolio speciale"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.799,
+          "self": false,
+          "updated_at": "2026-10-27T16:33:17Z"
+        }
+      ]
+    },
+    {
+      "id": 4363,
+      "name": "C. Galdieri & Figli SpA",
+      "brand": "Api-Ip",
+      "operator": "CARMINE GALDIERI & FIGLI - S.P.A. (IN BREVE C.GALDIERI & FIGLI - S.P.A.)",
+      "type": "stradale",
+      "address": "Statale 88 dei Due Principati, Km. 10,500, dir. Salerno - 84084",
+      "city": "FISCIANO",
+      "province": "SA",
+      "lat": 40.760558399137096,
+      "lon": 14.775000558370607,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.999,
+          "self": true,
+          "updated_at": "2026-10-26T12:30:13Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.149,
+          "self": false,
+          "updated_at": "2026-10-26T12:30:13Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.259,
+          "self": true,
+          "updated_at": "2026-10-26T12:30:13Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.409,
+          "self": false,
+          "updated_at": "2026-10-26T12:30:13Z"
+        }
+      ]
+    },
+    {
+      "id": 4365,
+      "name": "SALERNO EST",
+      "brand": "Api-Ip",
+      "operator": "CARMINE GALDIERI & FIGLI - S.P.A. (IN BREVE C.GALDIERI & FIGLI - S.P.A.)",
+      "type": "autostradale",
+      "address": "Autostrada A2 AUTOSTRADA DEL MEDITERRANEO, Km. 6.048, dir. NORD 84081",
+      "city": "BARONISSI",
+      "province": "SA",
+      "lat": 40.74886404699709,
+      "lon": 14.786710880950977,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.999,
+          "self": true,
+          "updated_at": "2026-10-25T12:00:54Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.149,
+          "self": false,
+          "updated_at": "2026-10-25T12:00:54Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.259,
+          "self": true,
+          "updated_at": "2026-10-25T12:00:54Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.409,
+          "self": false,
+          "updated_at": "2026-10-25T12:00:54Z"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.805,
+          "self": false,
+          "updated_at": "2026-10-25T12:00:54Z"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.797,
+          "self": false,
+          "updated_at": "2026-10-25T12:00:54Z"
+        }
+      ]
+    },
+    {
+      "id": 4366,
+      "name": "SALERNO OVEST",
+      "brand": "Api-Ip",
+      "operator": "CARMINE GALDIERI & FIGLI - S.P.A. (IN BREVE C.GALDIERI & FIGLI - S.P.A.)",
+      "type": "autostradale",
+      "address": "Autostrada A2 AUTOSTRADA DEL MEDITERRANEO, Km. 6.044, dir. SUD 84081",
+      "city": "BARONISSI",
+      "province": "SA",
+      "lat": 40.74789583047278,
+      "lon": 14.785441160202026,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.999,
+          "self": true,
+          "updated_at": "2026-10-26T15:30:12Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.149,
+          "self": false,
+          "updated_at": "2026-10-26T15:30:12Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.259,
+          "self": true,
+          "updated_at": "2026-10-26T15:30:12Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.409,
+          "self": false,
+          "updated_at": "2026-10-26T15:30:12Z"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.805,
+          "self": false,
+          "updated_at": "2026-10-26T15:30:12Z"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.797,
+          "self": false,
+          "updated_at": "2026-10-26T15:30:12Z"
+        }
+      ]
+    },
+    {
+      "id": 4387,
+      "name": "Eco Energy",
+      "brand": "Pompe Bianche",
+      "operator": "ECO ENERGY S.R.L.",
+      "type": "stradale",
+      "address": "VIA FICUCELLA II TRATTO 15, 81024 - -",
+      "city": "MADDALONI",
+      "province": "CE",
+      "lat": 41.01704462968536,
+      "lon": 14.367987513542175,
+      "prices": [
+        {
+          "fuel": "metano",
+          "price": 1.999,
+          "self": false,
+          "updated_at": "2026-10-27T11:43:18Z"
+        }
+      ]
+    },
+    {
+      "id": 4532,
+      "name": "Euroenergia snc QUALIANO",
+      "brand": "Q8",
+      "operator": "EUROENERGIA DI FRENELLO CACCIAPUOTI NICOLA E SABATINO ANNA S.N.C .",
+      "type": "stradale",
+      "address": "CIRCUMVALLAZIONE ESTERNA 207 80019",
+      "city": "QUALIANO",
+      "province": "NA",
+      "lat": 40.930204369003896,
+      "lon": 14.127286076545715,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.994,
+          "self": true,
+          "updated_at": "2026-10-27T20:22:24Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.144,
+          "self": false,
+          "updated_at": "2026-10-27T20:12:30Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.254,
+          "self": true,
+          "updated_at": "2026-10-27T20:22:24Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.404,
+          "self": false,
+          "updated_at": "2026-10-27T20:12:30Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.554,
+          "self": true,
+          "updated_at": "2026-10-27T20:22:24Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.294,
+          "self": true,
+          "updated_at": "2026-10-27T20:22:24Z",
+          "label": "HiQ Perform+"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.704,
+          "self": false,
+          "updated_at": "2026-10-27T20:12:30Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.444,
+          "self": false,
+          "updated_at": "2026-10-27T20:12:30Z",
+          "label": "HiQ Perform+"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.749,
+          "self": false,
+          "updated_at": "2026-10-27T20:12:30Z"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.985,
+          "self": false,
+          "updated_at": "2026-10-27T20:12:30Z"
+        }
+      ]
+    },
+    {
+      "id": 4548,
+      "name": "Q8 Granata",
+      "brand": "Q8",
+      "operator": "GRANATA CARMINE",
+      "type": "stradale",
+      "address": "via Santa Maria a Cubito 302 80019",
+      "city": "QUALIANO",
+      "province": "NA",
+      "lat": 40.92218326860464,
+      "lon": 14.150978028774261,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.999,
+          "self": false,
+          "updated_at": "2026-10-27T13:57:23Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.305,
+          "self": false,
+          "updated_at": "2026-10-27T13:57:23Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.554,
+          "self": false,
+          "updated_at": "2026-10-27T13:57:23Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.294,
+          "self": false,
+          "updated_at": "2026-10-27T13:57:23Z",
+          "label": "HiQ Perform+"
+        }
+      ]
+    },
+    {
+      "id": 5295,
+      "name": "GPL CASORIA",
+      "brand": "Energas",
+      "operator": "CAR.IO S.R.L.",
+      "type": "stradale",
+      "address": "VIA DELLE PUGLIE 176/A 80026",
+      "city": "CASORIA",
+      "province": "NA",
+      "lat": 40.883934189888485,
+      "lon": 14.31889528822171,
+      "prices": [
+        {
+          "fuel": "gpl",
+          "price": 0.769,
+          "self": false,
+          "updated_at": "2026-10-26T10:17:32Z"
+        }
+      ]
+    },
+    {
+      "id": 5320,
+      "name": "DOMITIA SERVICE S.A.S.",
+      "brand": "Api-Ip",
+      "operator": "DOMITIA SERVICE DI ANTONIO D'AMATO S.A.S. IN SIGLA: \"DOMITIA SERVICE S.A.S.\"",
+      "type": "stradale",
+      "address": "VIA DOMITIANA 18 81034",
+      "city": "MONDRAGONE",
+      "province": "CE",
+      "lat": 41.11792238031171,
+      "lon": 13.87674629688263,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 2.006,
+          "self": true,
+          "updated_at": "2026-10-23T14:43:51Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.317,
+          "self": false,
+          "updated_at": "2026-10-23T14:43:51Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.246,
+          "self": true,
+          "updated_at": "2026-10-23T14:43:51Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.557,
+          "self": false,
+          "updated_at": "2026-10-23T14:43:51Z"
+        }
+      ]
+    },
+    {
+      "id": 5372,
+      "name": "stazione di servizio q8 di colella carlo & c. snc",
+      "brand": "Q8",
+      "operator": "COLELLA CARLO & C. S.N.C.",
+      "type": "stradale",
+      "address": "Statale 7 Via Appia, Km. 295+415, dir. foggia - 83038",
+      "city": "MONTEMILETTO",
+      "province": "AV",
+      "lat": 40.99456080934492,
+      "lon": 14.89971935749054,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.994,
+          "self": true,
+          "updated_at": "2026-10-26T11:34:29Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 1.994,
+          "self": false,
+          "updated_at": "2026-10-26T11:34:29Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.254,
+          "self": true,
+          "updated_at": "2026-10-26T11:34:29Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.254,
+          "self": false,
+          "updated_at": "2026-10-26T11:34:29Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.554,
+          "self": true,
+          "updated_at": "2026-10-26T11:34:29Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.554,
+          "self": false,
+          "updated_at": "2026-10-26T11:34:30Z",
+          "label": "Hi-Q Diesel"
+        }
+      ]
+    },
+    {
+      "id": 5378,
+      "name": "Stazione di Servizio Q8 Giliberti Carburanti S.r.l.",
+      "brand": "Q8",
+      "operator": "GILIBERTI CARBURANTI S.R.L.",
+      "type": "stradale",
+      "address": "VIA NAZIONALE TORRETTE 225 83013",
+      "city": "MERCOGLIANO",
+      "province": "AV",
+      "lat": 40.907350382974286,
+      "lon": 14.753007888793945,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.999,
+          "self": true,
+          "updated_at": "2026-10-27T11:45:05Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.259,
+          "self": false,
+          "updated_at": "2026-10-27T11:45:05Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.259,
+          "self": true,
+          "updated_at": "2026-10-27T11:45:05Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.519,
+          "self": false,
+          "updated_at": "2026-10-27T11:45:05Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.799,
+          "self": true,
+          "updated_at": "2026-10-27T11:45:05Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.799,
+          "self": false,
+          "updated_at": "2026-10-27T11:45:05Z",
+          "label": "Hi-Q Diesel"
+        }
+      ]
+    },
+    {
+      "id": 5379,
+      "name": "Stazione di Servizio Q8 Giliberti Carburanti",
+      "brand": "Q8",
+      "operator": "GILIBERTI CARBURANTI S.R.L.",
+      "type": "stradale",
+      "address": "VIA NICOLA SANTAGELO 25 83013",
+      "city": "MERCOGLIANO",
+      "province": "AV",
+      "lat": 40.91621597936952,
+      "lon": 14.748034652778642,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.994,
+          "self": true,
+          "updated_at": "2026-10-27T11:45:19Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.204,
+          "self": false,
+          "updated_at": "2026-10-27T11:45:19Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.254,
+          "self": true,
+          "updated_at": "2026-10-27T11:45:19Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.464,
+          "self": false,
+          "updated_at": "2026-10-27T11:45:19Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.554,
+          "self": true,
+          "updated_at": "2026-10-27T11:45:19Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.714,
+          "self": false,
+          "updated_at": "2026-10-27T11:45:19Z",
+          "label": "Hi-Q Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.474,
+          "self": false,
+          "updated_at": "2026-10-27T11:45:19Z",
+          "label": "HiQ Perform+"
+        }
+      ]
+    },
+    {
+      "id": 5955,
+      "name": "Mugnano di Napoli",
+      "brand": "Api-Ip",
+      "operator": "IP SERVICES S.R.L.",
+      "type": "stradale",
+      "address": "Via P.Nenni 54 80018",
+      "city": "MUGNANO DI NAPOLI",
+      "province": "NA",
+      "lat": 40.91201991863902,
+      "lon": 14.222520589828491,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.999,
+          "self": true,
+          "updated_at": "2026-10-27T08:13:57Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.219,
+          "self": true,
+          "updated_at": "2026-10-27T08:13:57Z"
+        }
+      ]
+    },
+    {
+      "id": 5956,
+      "name": "NOLA",
+      "brand": "Api-Ip",
+      "operator": "IP SERVICES S.R.L.",
+      "type": "stradale",
+      "address": "Comprensorio CIS SNC 80035",
+      "city": "NOLA",
+      "province": "NA",
+      "lat": 40.95376230339099,
+      "lon": 14.485746034393287,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 2.019,
+          "self": true,
+          "updated_at": "2026-10-27T08:11:23Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.219,
+          "self": true,
+          "updated_at": "2026-10-27T08:11:23Z"
+        }
+      ]
+    },
+    {
+      "id": 6700,
+      "name": "FRATTAMAGGIORE VIA ROMA 262 IMP. Q8",
+      "brand": "Q8",
+      "operator": "SERVIZI & GESTIONI ITALIA S.R.L.",
+      "type": "stradale",
+      "address": "VIA ROMA IMP. Q8 262 80027",
+      "city": "FRATTAMAGGIORE",
+      "province": "NA",
+      "lat": 40.93349968936316,
+      "lon": 14.272496311045074,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.989,
+          "self": true,
+          "updated_at": "2026-10-27T14:34:07Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.249,
+          "self": true,
+          "updated_at": "2026-10-27T14:34:07Z"
+        }
+      ]
+    },
+    {
+      "id": 6719,
+      "name": "MONTESARCHIO VIA APPIA",
+      "brand": "Q8",
+      "operator": "SERVIZI & GESTIONI ITALIA S.R.L.",
+      "type": "stradale",
+      "address": "VIA APPIA SNC 82016",
+      "city": "MONTESARCHIO",
+      "province": "BN",
+      "lat": 41.06120234008578,
+      "lon": 14.64345507323742,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.989,
+          "self": true,
+          "updated_at": "2026-10-27T14:34:17Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.249,
+          "self": true,
+          "updated_at": "2026-10-27T14:34:17Z"
+        }
+      ]
+    },
+    {
+      "id": 6721,
+      "name": "CEPPALONI - SAN GIOVANN APPIA S.S. 7 KM. 251",
+      "brand": "Q8",
+      "operator": "SERVIZI & GESTIONI ITALIA S.R.L.",
+      "type": "stradale",
+      "address": "APPIA S.S. 7 KM. 251 - SAN GIOVANNI SNC 82010",
+      "city": "CEPPALONI",
+      "province": "BN",
+      "lat": 41.071574192512514,
+      "lon": 14.71189024047544,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.989,
+          "self": true,
+          "updated_at": "2026-10-27T14:19:02Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.249,
+          "self": true,
+          "updated_at": "2026-10-27T14:19:02Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 1.628,
+          "self": true,
+          "updated_at": "2014-08-18T22:50:42Z",
+          "label": "Hi-Q Diesel"
+        }
+      ]
+    },
+    {
+      "id": 8087,
+      "name": "AREA SERVIZIO IES",
+      "brand": "Pompe Bianche",
+      "operator": "IAPOZZUTO MARIO",
+      "type": "stradale",
+      "address": "C.DA CROCELLA 4 82024",
+      "city": "COLLE SANNITA",
+      "province": "BN",
+      "lat": 41.37141196450326,
+      "lon": 14.841078221797943,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 2.099,
+          "self": true,
+          "updated_at": "2026-10-23T11:33:00Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.159,
+          "self": false,
+          "updated_at": "2026-10-23T11:33:00Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.399,
+          "self": true,
+          "updated_at": "2026-10-23T11:33:00Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.459,
+          "self": false,
+          "updated_at": "2026-10-23T11:33:00Z"
+        }
+      ]
+    },
+    {
+      "id": 9630,
+      "name": "efuel srl",
+      "brand": "Ies",
+      "operator": "EFUEL - S.R.L.",
+      "type": "stradale",
+      "address": "STRADA PROVINCIALE CODOLA S.N.C. 84085",
+      "city": "MERCATO SAN SEVERINO",
+      "province": "SA",
+      "lat": 40.77876711432966,
+      "lon": 14.73268747329712,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 2.105,
+          "self": false,
+          "updated_at": "2026-10-23T08:16:19Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.399,
+          "self": false,
+          "updated_at": "2026-10-23T08:16:19Z"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.639,
+          "self": false,
+          "updated_at": "2026-10-23T08:16:19Z"
+        }
+      ]
+    },
+    {
+      "id": 9832,
+      "name": "STAZIONE DI SERVIZIO ENI DI DEL GENTILE MATTEO",
+      "brand": "Agip Eni",
+      "operator": "STAZIONE DI SERVIZIO DI DEL GENTILE MATTEO",
+      "type": "stradale",
+      "address": "VIA CANALE SNC 84013",
+      "city": "CAVA DE' TIRRENI",
+      "province": "SA",
+      "lat": 40.69619457456886,
+      "lon": 14.709444120526314,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.999,
+          "self": false,
+          "updated_at": "2026-10-26T19:13:07Z"
+        },
+        {
+          "fuel": "benzina_special",
+          "price": 2.14,
+          "self": false,
+          "updated_at": "2026-10-26T19:13:07Z",
+          "label": "Blue Super"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.305,
+          "self": false,
+          "updated_at": "2026-10-26T19:13:07Z",
+          "label": "Blue Diesel"
+        }
+      ]
+    }
+  ]
+}
