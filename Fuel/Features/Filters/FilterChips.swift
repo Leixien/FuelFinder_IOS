@@ -43,6 +43,8 @@ struct FilterChips: View {
             .font(.subheadline.weight(.semibold))
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
+            // A full 44 pt target: these get tapped on a phone mount.
+            .frame(minHeight: 44)
             .background(.regularMaterial, in: Capsule())
             .shadow(color: .black.opacity(0.12), radius: 4, y: 1)
     }

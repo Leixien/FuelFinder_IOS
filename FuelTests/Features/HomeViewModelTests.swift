@@ -145,6 +145,26 @@ struct HomeViewModelTests {
         #expect(model.selectedStationID == nil)
     }
 
+    @Test func returningToForegroundRefreshes() async throws {
+        let sample = try Fixture.sample
+        let calls = Counter()
+        let transport: StationsDataSource.Transport = { _ in
+            // Offline at launch (garage), connected when the app comes back to the foreground.
+            if await calls.next() == 1 {
+                throw URLError(.notConnectedToInternet)
+            }
+            return (sample, httpResponse(200))
+        }
+        let model = HomeViewModel(environment: environment(transport: transport), defaults: defaults)
+        let task = Task { await model.start() }
+        defer { task.cancel() }
+        #expect(await eventually { model.content == .failed(.network) })
+
+        await model.becameActive()
+
+        #expect(isResults(model))
+    }
+
     @Test func staleBannerFromReferenceDate() async {
         let data = Fixture.payload(pricesReferenceDate: "2026-10-20")
         let model = HomeViewModel(environment: environment(transport: serving(data)), defaults: defaults)

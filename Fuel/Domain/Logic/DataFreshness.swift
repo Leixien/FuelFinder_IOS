@@ -1,7 +1,9 @@
 import Foundation
 
 enum DataFreshness {
-    private static let maxAge: TimeInterval = 48 * 3600
+    /// Prices for day D are published on the morning of D+1, so the next file is due on D+2:
+    /// count 48 h from the end of the reference day, not from its first minute.
+    private static let maxAge: TimeInterval = (24 + 48) * 3600
 
     /// Whole days since `pricesReferenceDate` (`yyyy-MM-dd`, Italian day), or nil when the data is at most 48 h old.
     /// Uses the reference date, not `generated_at`: the pipeline can republish old prices with a new timestamp.

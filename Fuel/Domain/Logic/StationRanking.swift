@@ -27,6 +27,8 @@ enum StationRanking {
     }
 
     /// Searches the smallest radius that has a qualifying station, widening up to the last one.
+    /// If no station has a fresh price in the chosen mode even at the widest radius (GPL is almost never
+    /// self-service), fresh prices in the other mode qualify too: the card shows the mode badge.
     static func search( // swiftlint:disable:this function_parameter_count
         _ stations: [Station],
         fuel: FuelType,
@@ -35,15 +37,21 @@ enum StationRanking {
         sort: StationSort,
         now: Date
     ) -> NearbyResult {
+        let rules: [(StationMatch) -> Bool] = [
+            { qualifiesForCheapest($0, mode: mode, now: now) },
+            { isFresh($0.price, now: now) }
+        ]
         var radius = radii[0]
         var matches: [StationMatch] = []
         var qualified: [StationMatch] = []
-        for candidate in radii {
-            radius = candidate
-            matches = StationFilter.nearby(stations, fuel: fuel, mode: mode, origin: origin, radius: candidate)
-            qualified = matches.filter { qualifiesForCheapest($0, mode: mode, now: now) }
-            if !qualified.isEmpty {
-                break
+        search: for rule in rules {
+            for candidate in radii {
+                radius = candidate
+                matches = StationFilter.nearby(stations, fuel: fuel, mode: mode, origin: origin, radius: candidate, now: now)
+                qualified = matches.filter(rule)
+                if !qualified.isEmpty {
+                    break search
+                }
             }
         }
         let byPrice: (StationMatch, StationMatch) -> Bool = {

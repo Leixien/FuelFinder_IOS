@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var themeWhenInfoOpened: AppTheme = .system
     @AppStorage(AppTheme.storageKey) private var theme: AppTheme = .system
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.scenePhase) private var scenePhase
     @Namespace private var mapScope
 
     private static let italy = MKCoordinateRegion(
@@ -61,6 +62,11 @@ struct HomeView: View {
                 withAnimation { detent = id == nil ? compact : .large }
             }
             .task { await model.start() }
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .active {
+                    Task { await model.becameActive() }
+                }
+            }
     }
 
     /// ponytail: preferredColorScheme(nil) does not reach an already presented sheet, so going back to the system

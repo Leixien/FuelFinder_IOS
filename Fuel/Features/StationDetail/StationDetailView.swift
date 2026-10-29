@@ -116,9 +116,10 @@ struct StationDetailView: View {
     }
 
     private var fullAddress: String {
-        let street = station.address.localizedCapitalized
-        let city = station.city.localizedCapitalized
-        return station.province.isEmpty ? "\(street), \(city)" : "\(street), \(city) (\(station.province))"
+        let city = [station.city.localizedCapitalized, station.province.isEmpty ? "" : "(\(station.province))"]
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
+        return [station.address.localizedCapitalized, city].filter { !$0.isEmpty }.joined(separator: ", ")
     }
 }
 

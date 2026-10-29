@@ -98,6 +98,12 @@ final class HomeViewModel {
         await refresh()
     }
 
+    /// iOS keeps a suspended app for days: coming back must not show yesterday's prices or a launch-time failure.
+    /// The ETag makes this a cheap 304 when nothing changed.
+    func becameActive() async {
+        await refresh()
+    }
+
     private func refresh() async {
         guard !isRefreshing else { return }
         isRefreshing = true

@@ -69,6 +69,29 @@ struct StationRankingTests {
         #expect(result.cheapest?.id == 2)
     }
 
+    @Test func otherModeWinsWhenChosenModeIsMissingEverywhere() {
+        // GPL is almost never self-service in Italy: the default Self mode must still give an answer.
+        let served = Station.stub(prices: [.stub(.benzina, 0.72, isSelf: false, updatedAt: now)])
+
+        let result = search([served])
+
+        #expect(result.cheapest?.id == served.id)
+        // The fallback restarts from the smallest radius: the nearest served pump, not one 25 km away.
+        #expect(result.radius == 5000)
+    }
+
+    @Test func oldCheapProductDoesNotHideCurrentPrice() {
+        let station = Station.stub(prices: [
+            .stub(.benzina, 1.60, label: "Old", updatedAt: now.addingTimeInterval(-3650 * 86400)),
+            .stub(.benzina, 1.90, label: "Current", updatedAt: now)
+        ])
+
+        let result = search([station])
+
+        #expect(result.cheapest?.price.price == 1.90)
+        #expect(result.matches.first?.price.price == 1.90)
+    }
+
     @Test func sortByPriceAndByDistance() {
         let nearExpensive = Station.stub(id: 1, lat: 40.86, prices: [.stub(.benzina, 1.90, updatedAt: now)])
         let farCheap = Station.stub(id: 2, lat: 40.88, prices: [.stub(.benzina, 1.70, updatedAt: now)])

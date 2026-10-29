@@ -32,6 +32,10 @@ struct AppEnvironment {
         /// Fixture data, a fixed spot in Naples and a frozen clock: the fixture's prices would otherwise
         /// all turn older than 7 days a week after it was recorded, leaving the cheapest card empty.
         static func uiTest() -> AppEnvironment {
+            // Filters and theme left by manual runs on the same simulator must not leak into the tests.
+            if let domain = Bundle.main.bundleIdentifier {
+                UserDefaults.standard.removePersistentDomain(forName: domain)
+            }
             let data = PreviewData.fixtureData
             let source = StationsDataSource(url: URL(filePath: "/fixture.json")) { request in
                 // swiftlint:disable:next force_unwrapping
