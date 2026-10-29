@@ -4,7 +4,7 @@ import UIKit
 /// Card-sized placeholder for every state where there is no cheapest price to show.
 struct StateCard<Actions: View>: View {
     let title: LocalizedStringKey
-    let message: LocalizedStringKey
+    let message: Text
     let systemImage: String
     @ViewBuilder var actions: Actions
 
@@ -12,7 +12,7 @@ struct StateCard<Actions: View>: View {
         VStack(alignment: .leading, spacing: 8) {
             Label(title, systemImage: systemImage)
                 .font(.headline)
-            Text(message)
+            message
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
             actions
@@ -22,7 +22,7 @@ struct StateCard<Actions: View>: View {
 }
 
 extension StateCard where Actions == EmptyView {
-    init(title: LocalizedStringKey, message: LocalizedStringKey, systemImage: String) {
+    init(title: LocalizedStringKey, message: Text, systemImage: String) {
         self.init(title: title, message: message, systemImage: systemImage) { EmptyView() }
     }
 }
@@ -45,7 +45,7 @@ struct LocationDeniedCard: View {
     var body: some View {
         StateCard(
             title: "Posizione disattivata",
-            message: "Attiva la posizione per vedere i distributori più economici vicino a te.",
+            message: Text("Attiva la posizione per vedere i distributori più economici vicino a te."),
             systemImage: "location.slash"
         ) {
             Button("Apri Impostazioni") {
@@ -81,7 +81,11 @@ struct StaleBannerView: View {
         StaleBannerView(banner: StaleBanner(days: 3, offline: true))
         LoadingCard(title: "Cerco la tua posizione…")
         LocationDeniedCard()
-        StateCard(title: "Nessun distributore", message: "Prova un altro carburante.", systemImage: "fuelpump.slash")
+        StateCard(
+            title: "Nessun prezzo recente",
+            message: Text("Qui vicino nessun distributore ha aggiornato il prezzo negli ultimi 7 giorni."),
+            systemImage: "clock.badge.exclamationmark"
+        )
     }
     .padding()
 }

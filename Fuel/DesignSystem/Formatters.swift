@@ -51,6 +51,14 @@ enum Formatters {
             : String(localized: "\(name), \(amount) euro al litro, a \(distance), \(mode)")
     }
 
+    /// A price as VoiceOver should say it, with its unit in words.
+    static func spokenPrice(_ value: Double, fuel: FuelType) -> String {
+        let amount = price(value)
+        return isPerKilogram(fuel)
+            ? String(localized: "\(amount) euro al chilogrammo")
+            : String(localized: "\(amount) euro al litro")
+    }
+
     private static func isPerKilogram(_ fuel: FuelType) -> Bool {
         fuel == .metano || fuel == .gnl
     }

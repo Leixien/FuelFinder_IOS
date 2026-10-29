@@ -111,6 +111,40 @@ struct HomeViewModelTests {
         #expect(await run(model) { model.content == .failed(.network) })
     }
 
+    @Test func retryRecoversAndIgnoresTapsWhileInFlight() async throws {
+        let sample = try Fixture.sample
+        let calls = Counter()
+        let transport: StationsDataSource.Transport = { _ in
+            // First launch fails; the retry succeeds slowly enough for a second tap to land mid-flight.
+            if await calls.next() == 1 {
+                throw URLError(.notConnectedToInternet)
+            }
+            try await Task.sleep(for: .milliseconds(100))
+            return (sample, httpResponse(200))
+        }
+        let model = HomeViewModel(environment: environment(transport: transport), defaults: defaults)
+        let task = Task { await model.start() }
+        defer { task.cancel() }
+        #expect(await eventually { model.content == .failed(.network) })
+
+        async let first: Void = model.retry()
+        async let second: Void = model.retry()
+        _ = await (first, second)
+
+        #expect(isResults(model))
+        #expect(await calls.value == 2)
+    }
+
+    @Test func selectionClearsWhenStationLeavesResults() async throws {
+        let model = try HomeViewModel(environment: environment(transport: serving(Fixture.sample)), defaults: defaults)
+        #expect(await run(model) { model.result?.cheapest != nil })
+        model.selectedStationID = model.result?.cheapest?.id
+
+        model.fuel = .gnl
+
+        #expect(model.selectedStationID == nil)
+    }
+
     @Test func staleBannerFromReferenceDate() async {
         let data = Fixture.payload(pricesReferenceDate: "2026-10-20")
         let model = HomeViewModel(environment: environment(transport: serving(data)), defaults: defaults)
@@ -136,5 +170,14 @@ struct HomeViewModelTests {
         #expect(second.fuel == .gasolio)
         #expect(second.mode == .fullService)
         #expect(second.sort == .distance)
+    }
+}
+
+private actor Counter {
+    private(set) var value = 0
+
+    func next() -> Int {
+        value += 1
+        return value
     }
 }

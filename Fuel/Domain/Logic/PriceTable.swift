@@ -18,7 +18,8 @@ enum PriceTable {
     /// One row per (fuel, label), in `FuelType.allCases` order, then by label.
     static func rows(for station: Station) -> [PriceTableRow] {
         let order = Dictionary(uniqueKeysWithValues: FuelType.allCases.enumerated().map { ($1, $0) })
-        return Dictionary(grouping: station.prices) { PriceTableRow.Key(fuel: $0.fuel, label: $0.label) }
+        // An empty label and a missing one are the same product: one row, one id.
+        return Dictionary(grouping: station.prices) { PriceTableRow.Key(fuel: $0.fuel, label: $0.label?.nilIfEmpty) }
             .map { key, prices in
                 PriceTableRow(
                     fuel: key.fuel,
@@ -36,5 +37,11 @@ private extension PriceTableRow {
     struct Key: Hashable {
         let fuel: FuelType
         let label: String?
+    }
+}
+
+private extension String {
+    var nilIfEmpty: String? {
+        isEmpty ? nil : self
     }
 }

@@ -1,6 +1,26 @@
 {
   "sourceLanguage": "it",
   "strings": {
+    "%@ euro al chilogrammo": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ euros per kilogram"
+          }
+        }
+      }
+    },
+    "%@ euro al litro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ euros per litre"
+          }
+        }
+      }
+    },
     "%@, %@ euro al chilogrammo, a %@, %@": {
       "localizations": {
         "en": {
@@ -17,6 +37,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@, %2$@ euros per litre, %3$@ away, %4$@"
+          }
+        }
+      }
+    },
+    "%@, self %@, servito %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, self-service %2$@, full service %3$@"
           }
         }
       }
@@ -77,6 +107,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Fuel"
+          }
+        }
+      }
+    },
+    "Carburante: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuel: %@"
           }
         }
       }
@@ -251,6 +291,16 @@
         }
       }
     },
+    "Modalità: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Service: %@"
+          }
+        }
+      }
+    },
     "Nessun distributore entro %@": {
       "localizations": {
         "en": {
@@ -277,6 +327,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "No recent prices"
+          }
+        }
+      }
+    },
+    "Ordine: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Order: %@"
           }
         }
       }
@@ -337,16 +397,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Location off"
-          }
-        }
-      }
-    },
-    "Prezzi carburanti in arrivo": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fuel prices coming soon"
           }
         }
       }
@@ -417,6 +467,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Roadside"
+          }
+        }
+      }
+    },
+    "non disponibile": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "not available"
           }
         }
       }

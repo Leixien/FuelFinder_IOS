@@ -34,4 +34,13 @@ struct PriceTableTests {
 
         #expect(PriceTable.rows(for: station).map(\.fuel) == [.benzina, .gpl, .metano])
     }
+
+    @Test func emptyLabelIsTreatedAsNoLabel() {
+        let station = Station.stub(prices: [.stub(.benzina, 1.8, label: ""), .stub(.benzina, 1.9, isSelf: false)])
+
+        let rows = PriceTable.rows(for: station)
+
+        #expect(rows.count == 1)
+        #expect(rows.first?.label == nil)
+    }
 }

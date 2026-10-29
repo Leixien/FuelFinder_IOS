@@ -42,6 +42,11 @@ struct FormattersTests {
         #expect(Formatters.accessibilityLabel(for: kilo).contains(Formatters.price(1.5)))
     }
 
+    @Test func spokenPriceNamesTheUnit() {
+        #expect(Formatters.spokenPrice(1.5, fuel: .metano) != Formatters.spokenPrice(1.5, fuel: .benzina))
+        #expect(Formatters.spokenPrice(1.5, fuel: .metano).contains(Formatters.price(1.5)))
+    }
+
     private func station(brand: String, name: String) -> Station {
         Station(
             id: 1, name: name, brand: brand, operatorName: "", type: .stradale,

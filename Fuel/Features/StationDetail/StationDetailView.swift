@@ -33,6 +33,7 @@ struct StationDetailView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(Formatters.displayName(of: station))
                     .font(.title2.weight(.bold))
+                    .accessibilityAddTraits(.isHeader)
                 Text(fullAddress)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -63,21 +64,42 @@ struct StationDetailView: View {
             .foregroundStyle(.secondary)
             ForEach(PriceTable.rows(for: station)) { row in
                 Divider().gridCellUnsizedAxes(.horizontal)
-                let isChosen = row.fuel == fuel
+                // Only the product that won is highlighted, not every product of its category.
+                let isChosen = row.fuel == fuel && row.label == winningLabel
                 GridRow {
                     VStack(alignment: .leading, spacing: 1) {
                         Text(row.fuel.localizedName)
                         if let caption = caption(for: row) {
                             Text(caption).font(.caption).foregroundStyle(.secondary)
                         }
+                        // MIMIT republishes a station's last price even years later: say how old it is.
+                        if now.timeIntervalSince(row.updatedAt) > StationRanking.maxPriceAge {
+                            Text(Formatters.age(of: row.updatedAt, now: now))
+                                .font(.caption)
+                                .foregroundStyle(.stale)
+                        }
                     }
                     priceCell(row.selfPrice, isChosen: isChosen)
                     priceCell(row.servedPrice, isChosen: isChosen)
                 }
                 .fontWeight(isChosen ? .bold : .regular)
-                .accessibilityElement(children: .combine)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(accessibilityLabel(for: row))
             }
         }
+    }
+
+    private var winningLabel: String? {
+        match.price.label.flatMap { $0.isEmpty ? nil : $0 }
+    }
+
+    /// "Benzina, self 1,729 euro al litro, servito non disponibile": the grid header is not read with each row.
+    private func accessibilityLabel(for row: PriceTableRow) -> String {
+        let name = [String(localized: row.fuel.localizedName), row.label].compactMap(\.self).joined(separator: " ")
+        let unavailable = String(localized: "non disponibile")
+        let selfPrice = row.selfPrice.map { Formatters.spokenPrice($0, fuel: row.fuel) } ?? unavailable
+        let servedPrice = row.servedPrice.map { Formatters.spokenPrice($0, fuel: row.fuel) } ?? unavailable
+        return String(localized: "\(name), self \(selfPrice), servito \(servedPrice)")
     }
 
     private func priceCell(_ price: Double?, isChosen: Bool) -> some View {

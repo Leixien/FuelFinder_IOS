@@ -29,10 +29,12 @@ struct CheapestCard: View {
                     }
                     Text(match.station.title(for: match.price))
                         .font(.headline)
-                    Text(match.station.address.localizedCapitalized)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
+                    if !match.station.address.isEmpty {
+                        Text(match.station.address.localizedCapitalized)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                    }
                     Text(meta)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)

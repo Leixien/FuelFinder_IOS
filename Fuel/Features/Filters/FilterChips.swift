@@ -18,19 +18,22 @@ struct FilterChips: View {
             } label: {
                 chip {
                     Text(fuel.localizedName)
-                    Image(systemName: "chevron.down").font(.caption2.weight(.bold))
+                    Image(systemName: "chevron.down").font(.caption2.weight(.bold)).accessibilityHidden(true)
                 }
             }
+            .accessibilityLabel(Text("Carburante: \(Text(fuel.localizedName))"))
             Button {
                 mode = mode == .selfService ? .fullService : .selfService
             } label: {
                 chip { Text(mode.localizedName) }
             }
+            .accessibilityLabel(Text("Modalità: \(Text(mode.localizedName))"))
             Button {
                 sort = sort == .price ? .distance : .price
             } label: {
                 chip { Text(sort.localizedName) }
             }
+            .accessibilityLabel(Text("Ordine: \(Text(sort.localizedName))"))
         }
         .buttonStyle(.plain)
     }

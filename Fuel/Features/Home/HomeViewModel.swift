@@ -50,6 +50,7 @@ final class HomeViewModel {
     @ObservationIgnored private let defaults: UserDefaults
     @ObservationIgnored private var authorization: LocationAuthorization
     @ObservationIgnored private var refreshError: DataError?
+    @ObservationIgnored private var isRefreshing = false
 
     init(environment: AppEnvironment, defaults: UserDefaults = .standard) {
         self.environment = environment
@@ -89,11 +90,18 @@ final class HomeViewModel {
         }
     }
 
+    /// Shows the spinner again and ignores taps while a download is already running.
     func retry() async {
+        guard !isRefreshing else { return }
+        refreshError = nil
+        recompute()
         await refresh()
     }
 
     private func refresh() async {
+        guard !isRefreshing else { return }
+        isRefreshing = true
+        defer { isRefreshing = false }
         do {
             payload = try await environment.repository.refresh().payload
             refreshError = nil
@@ -123,6 +131,10 @@ final class HomeViewModel {
             .flatMap { DataFreshness.staleDays(pricesReferenceDate: $0.pricesReferenceDate, now: now) }
             .map { StaleBanner(days: $0, offline: refreshError == .network) }
         content = makeContent()
+        // A station that left the results (new fuel, mode or position) cannot stay open in the detail.
+        if selectedStationID != nil, selectedMatch == nil {
+            selectedStationID = nil
+        }
     }
 
     private func makeContent() -> Content {
