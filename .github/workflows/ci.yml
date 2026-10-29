@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: brew install xcodegen swiftlint
+
+      - name: Lint
+        run: swiftlint --strict
+
+      - name: Generate project
+        run: xcodegen generate
+
+      # Runner images change simulator sets often: pick the first available iPhone instead of hardcoding one.
+      - name: Test
+        run: |
+          DEVICE_ID=$(xcrun simctl list devices available -j \
+            | jq -r '[.devices[][] | select(.name | startswith("iPhone"))][0].udid')
+          xcodebuild test -scheme Fuel -destination "id=$DEVICE_ID" -quiet
