@@ -25,6 +25,7 @@ targets:
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         DataURL: $(DATA_URL)
+        NSLocationWhenInUseUsageDescription: La posizione serve a trovare i distributori più vicini e non lascia mai il telefono.
     settings:
       base:
         TARGETED_DEVICE_FAMILY: "1"

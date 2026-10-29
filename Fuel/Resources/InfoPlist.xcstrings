@@ -1,0 +1,24 @@
+{
+  "sourceLanguage": "it",
+  "strings": {
+    "NSLocationWhenInUseUsageDescription": {
+      "comment": "Location permission prompt",
+      "extractionState": "extracted_with_value",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your location is used to find the nearest fuel stations and never leaves your phone."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "new",
+            "value": "La posizione serve a trovare i distributori più vicini e non lascia mai il telefono."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
