@@ -64,6 +64,7 @@ Dominio e dati già pronti (Fase 1): `StationsRepository` (`cached()` + `refresh
 - **Carburante**: menu con tutti i casi di `FuelType` con nomi leggibili localizzati. Default benzina.
 - **Self/Servito**: toggle. Default self. Se un distributore non ha la modalità scelta si usa l'altra (logica già in `StationFilter.price`) e la riga/pin mostra un badge "Servito"/"Self".
 - **Mia scelta:** la card "Più economico" e il pin verde considerano solo i prezzi nella modalità scelta; i distributori in fallback compaiono solo in lista e sulla mappa, col badge. Anche l'allargamento del raggio conta solo i distributori nella modalità scelta.
+- **Corretto dopo la revisione finale (da confermare):** se entro 25 km non c'è nessun prezzo recente nella modalità scelta, la ricerca riparte da 5 km accettando anche l'altra modalità, e la card mostra il badge. Senza questo, chi cerca GPL o GNL con "Self" (il default) non avrebbe mai una risposta, perché in Italia quasi non esistono self per questi carburanti.
 - **Ordinamento**: "Più economici" (default) / "Più vicini". Cambia l'ordine della lista; la card resta sempre "Più economico".
 - Carburante e modalità persistiti in `UserDefaults` (`@AppStorage`). Ordinamento: **mia scelta**, persistito anch'esso.
 - Nota: `specificheTecniche.md` §4.2 dice "lista ordinata per distanza"; con questa decisione il default diventa per prezzo. Aggiornare le specifiche.
