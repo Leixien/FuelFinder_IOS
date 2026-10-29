@@ -1,12 +1,112 @@
 {
   "sourceLanguage": "it",
   "strings": {
+    "%@, %@ euro al chilogrammo, a %@, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$@ euros per kilogram, %3$@ away, %4$@"
+          }
+        }
+      }
+    },
+    "%@, %@ euro al litro, a %@, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, %2$@ euros per litre, %3$@ away, %4$@"
+          }
+        }
+      }
+    },
+    "Benzina": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Petrol"
+          }
+        }
+      }
+    },
+    "Benzina special": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium petrol"
+          }
+        }
+      }
+    },
     "Connessione assente. Riprova più tardi.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "No connection. Try again later."
+          }
+        }
+      }
+    },
+    "Distributore": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Station"
+          }
+        }
+      }
+    },
+    "GNL": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LNG"
+          }
+        }
+      }
+    },
+    "GPL": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LPG"
+          }
+        }
+      }
+    },
+    "Gasolio": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diesel"
+          }
+        }
+      }
+    },
+    "Gasolio special": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium diesel"
+          }
+        }
+      }
+    },
+    "HVO": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HVO"
           }
         }
       }
@@ -41,12 +141,42 @@
         }
       }
     },
+    "Metano": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CNG"
+          }
+        }
+      }
+    },
     "Prezzi carburanti in arrivo": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "Fuel prices coming soon"
+          }
+        }
+      }
+    },
+    "self": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "self-service"
+          }
+        }
+      }
+    },
+    "servito": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "full service"
           }
         }
       }
