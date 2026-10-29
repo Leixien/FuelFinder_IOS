@@ -17,7 +17,11 @@ targets:
   Fuel:
     type: application
     platform: iOS
-    sources: [Fuel]
+    sources:
+      - Fuel
+      # Shared with FuelTests: drives SwiftUI previews and the -uiTesting launch mode.
+      - path: FuelTests/Fixtures/stations_sample.json
+        buildPhase: resources
     info:
       path: Fuel/Info.plist
       properties:
@@ -25,10 +29,15 @@ targets:
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         DataURL: $(DATA_URL)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSLocationWhenInUseUsageDescription: La posizione serve a trovare i distributori più vicini e non lascia mai il telefono.
     settings:
       base:
         TARGETED_DEVICE_FAMILY: "1"
         LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+        # Color(.best) etc. come from Assets.xcassets; explicit so Xcode and xcodebuild agree.
+        ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: YES
         SWIFT_EMIT_LOC_STRINGS: YES
   FuelTests:
     type: bundle.unit-test

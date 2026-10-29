@@ -69,3 +69,5 @@ Fuel/Info.plist
 Config/Local.xcconfig
 DerivedData/
 .DS_Store
+# Brainstorm mockups (superpowers visual companion)
+.superpowers/

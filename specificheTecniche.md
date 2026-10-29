@@ -115,7 +115,7 @@ File CSV MIMIT, pubblicati ogni mattina:
 ## 4. Funzionalità MVP
 
 1. **Mappa** con annotazioni cluster, prezzo visibile sul marker per il carburante selezionato.
-2. **Lista "vicino a me"** ordinata per distanza (Haversine, nessuna chiamata di rete), con prezzo self/servito.
+2. **Lista "vicino a me"** ordinata per prezzo di default oppure per distanza (Haversine, nessuna chiamata di rete), con prezzo self/servito. La card "Più economico" considera solo prezzi della modalità scelta aggiornati negli ultimi 7 giorni (dettagli in `docs/superpowers/specs/2026-10-29-fase2-ui-design.md`).
 3. **Filtro carburante** persistito in `UserDefaults` (default: benzina).
 4. **Toggle self/servito** (default: self; se assente mostra servito con badge).
 5. **Dettaglio stazione**: tutti i prezzi, indirizzo, bandiera, pulsante "Indicazioni" (apre Apple Maps), data ultimo aggiornamento.
@@ -146,5 +146,5 @@ GitHub Actions (`macos-latest`): `xcodegen generate` → `xcodebuild test -schem
 
 ## 9. Privacy
 
-- Posizione: `NSLocationWhenInUseUsageDescription`, richiesta solo quando l'utente apre mappa o lista "vicino a me". Nessun tracciamento, nessuna analytics nel MVP.
+- Posizione: `NSLocationWhenInUseUsageDescription`, richiesta al primo avvio, perché la mappa con i distributori vicini è la prima schermata. Nessun tracciamento, nessuna analytics nel MVP.
 - Nessun dato utente lascia il dispositivo: l'unica richiesta di rete è il GET del JSON.

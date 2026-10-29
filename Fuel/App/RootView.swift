@@ -1,13 +1,17 @@
 import SwiftUI
 
-/// Placeholder until the Nearby and Map features land (Fase 2).
 struct RootView: View {
+    let model: HomeViewModel
+    @AppStorage(AppTheme.storageKey) private var theme: AppTheme = .system
+
     var body: some View {
-        ContentUnavailableView("Prezzi carburanti in arrivo", systemImage: "fuelpump")
-            .accessibilityIdentifier("root.placeholder")
+        HomeView(model: model)
+            .preferredColorScheme(theme.colorScheme)
     }
 }
 
-#Preview {
-    RootView()
-}
+#if DEBUG
+    #Preview {
+        RootView(model: HomeViewModel(environment: .uiTest()))
+    }
+#endif
