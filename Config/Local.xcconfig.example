@@ -1,0 +1,4 @@
+// Copy to Config/Local.xcconfig (gitignored) to sign with your own Apple account.
+// Not needed to run on Simulator.
+DEVELOPMENT_TEAM = ABCDE12345
+PRODUCT_BUNDLE_IDENTIFIER = com.example.fuel

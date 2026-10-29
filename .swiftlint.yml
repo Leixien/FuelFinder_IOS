@@ -1,0 +1,15 @@
+included:
+  - Fuel
+  - FuelTests
+  - FuelUITests
+excluded:
+  - DerivedData
+opt_in_rules:
+  - empty_count
+  - first_where
+  - force_unwrapping
+  - implicitly_unwrapped_optional
+  - sorted_imports
+line_length:
+  warning: 140
+  error: 200

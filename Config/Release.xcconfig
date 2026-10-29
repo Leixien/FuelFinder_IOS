@@ -1,0 +1,5 @@
+// `//` starts a comment in xcconfig, hence the `$()` in the URL.
+// ponytail: placeholder until fuel-data publishes the real URL (see TODO.md "Richieste a fuel-data").
+DATA_URL = https:/$()/leixien.github.io/fuel-data/stations.json
+
+#include "Shared.xcconfig"

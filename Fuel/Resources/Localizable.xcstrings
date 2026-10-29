@@ -1,0 +1,16 @@
+{
+  "sourceLanguage" : "it",
+  "strings" : {
+    "Prezzi carburanti in arrivo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fuel prices coming soon"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

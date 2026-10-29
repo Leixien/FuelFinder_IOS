@@ -1,0 +1,5 @@
+// Shared by Debug and Release. Personal values go in Local.xcconfig (gitignored).
+PRODUCT_BUNDLE_IDENTIFIER = com.leixien.fuel
+DEVELOPMENT_TEAM =
+
+#include? "Local.xcconfig"
