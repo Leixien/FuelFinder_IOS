@@ -39,8 +39,10 @@ extension Station {
 }
 
 extension FuelPrice {
-    static func stub(_ fuel: FuelType, _ price: Double, isSelf: Bool = true, label: String? = nil) -> FuelPrice {
-        FuelPrice(fuel: fuel, price: price, isSelf: isSelf, updatedAt: .now, label: label)
+    static func stub(
+        _ fuel: FuelType, _ price: Double, isSelf: Bool = true, label: String? = nil, updatedAt: Date = .now
+    ) -> FuelPrice {
+        FuelPrice(fuel: fuel, price: price, isSelf: isSelf, updatedAt: updatedAt, label: label)
     }
 }
 
