@@ -15,7 +15,7 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 - [x] Issue template (bug / feature) e PR template
 
 ## Fase 1 — Dominio e dati
-- [x] `FuelType` enum (allineato a `fuel_types` del contratto)
+- [x] `FuelType` enum (allineato a `fuel_types` del contratto, incluse le categorie `gnl` e `hvo`)
 - [x] Modelli `Station`, `FuelPrice`, `StationsPayload` (`Codable`, `Sendable`)
 - [x] Fixture `FuelTests/Fixtures/stations_sample.json` (≈ 30 stazioni reali della Campania, schema v1)
 - [x] `StationsDataSource` con URLSession, ETag/`If-None-Match`, gestione `schema_version`
@@ -54,7 +54,7 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 ## Richieste a fuel-data
 - [ ] Definire URL di produzione di `stations.json` e politica di cache/CDN
 - [ ] Pubblicare anche una fixture ufficiale ridotta per i test dei client (quella attuale è generata a mano dai CSV del 2026-10-28)
-- [ ] Mappatura dei carburanti fuori contratto presenti nei CSV reali: HVO / HVOlution / HVO100 (oggi finirebbero in `gasolio_special`?), GNL e L-GNC (non rappresentabili: nella fixture sono esclusi)
+- [ ] Implementare la mappatura `descCarburante` → `fuel` estesa (`gnl`, `hvo`, L-GNC in `metano`): contratto aggiornato in `specificheTecniche.md` §3.1 il 2026-10-29
 - [ ] Tipo impianto "Pompe Bianche" nei CSV: confermare che diventi `altro`
 - [ ] Specificare la nullabilità di `brand`, `operator`, `name`, `address` (il client oggi li assume sempre presenti)
 
@@ -72,6 +72,7 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 - Prezzo mostrato: il più basso nella modalità richiesta (più voci `*_special` per stazione); se manca, quello dell'altra modalità (la UI mostrerà il badge confrontando `isSelf`).
 - Cache in Application Support esclusa dal backup iCloud, non in Caches (che iOS può svuotare: romperebbe l'offline-first).
 - `StationsRepository.refresh()` non deduplica chiamate concorrenti: va chiamato da un solo punto (Fase 2).
+- Categorie carburante estese (`gnl`, `hvo`; L-GNC dentro `metano`) invece di esporre le ~60 descrizioni MIMIT: lista stabile e corta per il filtro, nessun prezzo perso grazie a `label`. Scartate: L-GNC come voce separata (per l'utente è lo stesso rifornimento del metano) e un filtro per ogni prodotto commerciale.
 
 ## Note di sessione
 - 2026-10-29: Fase 0 bootstrap (tranne CI non ancora verificata). Build, unit test (Swift Testing), UI smoke test e `swiftlint --strict` verdi su iPhone 17 / iOS 27. Se un test fallisce, `xcodebuild test` può bloccarsi su `simctl diagnose`: usare `-collect-test-diagnostics never` in locale.

@@ -32,12 +32,20 @@ struct StationsDecoderTests {
         #expect(specials.allSatisfy { $0.label != nil })
     }
 
+    @Test func decodesExtendedFuelCategories() throws {
+        let prices = try StationsDecoder.decode(Fixture.sample).stations.flatMap(\.prices)
+
+        #expect(prices.contains { $0.fuel == .gnl })
+        #expect(prices.contains { $0.fuel == .hvo && $0.label == "HVOlution" })
+        #expect(prices.contains { $0.fuel == .metano && $0.label == "L-GNC" })
+    }
+
     @Test func skipsUnknownFuelsAndMapsUnknownTypesToAltro() throws {
         let data = Fixture.payload(stations: """
         [{ "id": 1, "name": "N", "brand": "B", "operator": "O", "type": "pompe_bianche",
            "address": "A", "city": "C", "province": "NA", "lat": 40.8, "lon": 14.2,
            "prices": [
-             { "fuel": "hvo", "price": 1.9, "self": true, "updated_at": "2026-10-27T07:35:21Z" },
+             { "fuel": "idrogeno", "price": 1.9, "self": true, "updated_at": "2026-10-27T07:35:21Z" },
              { "fuel": "gasolio", "price": 1.7, "self": true, "updated_at": "2026-10-27T07:35:21Z", "extra": 1 }
            ] }]
         """)

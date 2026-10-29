@@ -61,7 +61,7 @@ L'app consuma un unico file statico pubblicato dalla pipeline `fuel-data`. URL d
     "license": "IODL 2.0",
     "url": "https://www.mimit.gov.it/it/open-data/elenco-dataset/carburanti-prezzi-praticati-e-anagrafica-degli-impianti"
   },
-  "fuel_types": ["benzina", "gasolio", "gpl", "metano", "benzina_special", "gasolio_special"],
+  "fuel_types": ["benzina", "gasolio", "gpl", "metano", "gnl", "hvo", "benzina_special", "gasolio_special"],
   "stations": [
     {
       "id": 12092,
@@ -86,8 +86,13 @@ L'app consuma un unico file statico pubblicato dalla pipeline `fuel-data`. URL d
 
 Vincoli:
 - `id` è l'`idImpianto` MIMIT (chiave stabile, usata anche da OpenStreetMap come `ref:mise`).
-- `price` in euro, 3 decimali; per il metano il prezzo è al **kg**, non al litro.
-- `fuel` è un enum chiuso normalizzato dalla pipeline; i carburanti "speciali" delle singole bandiere (es. "Blue Diesel", "V-Power") vengono mappati su `benzina_special` / `gasolio_special` con il nome originale in un campo opzionale `label`.
+- `price` in euro, 3 decimali; per `metano` e `gnl` il prezzo è al **kg**, non al litro.
+- `fuel` è un enum normalizzato dalla pipeline a partire da `descCarburante` MIMIT (~60 descrizioni). Quando la descrizione non coincide col nome della categoria, il nome originale va nel campo opzionale `label`:
+  - `benzina`, `gasolio`, `gpl`, `metano`, `gnl`: descrizioni MIMIT omonime;
+  - `metano` include anche **L-GNC** (metano liquefatto erogato compresso) con `label: "L-GNC"`;
+  - `hvo`: ogni descrizione che contiene "HVO" (HVO, HVOlution, HVO100, REHVO, Gasolio Bio HVO, …);
+  - `benzina_special` / `gasolio_special`: varianti commerciali delle bandiere (es. "Blue Super", "V-Power", "Blue Diesel", "Gasolio artico").
+- Aggiungere valori a `fuel` è una modifica **compatibile** (non incrementa `schema_version`): i client devono scartare i prezzi con `fuel` sconosciuto invece di fallire il parsing.
 - `type` ∈ `{stradale, autostradale, altro}`.
 - Stazioni senza coordinate valide (lat/lon nulle o fuori dall'Italia) sono **escluse** dalla pipeline, non dal client.
 - Una modifica incompatibile incrementa `schema_version`; il client rifiuta versioni maggiori di quella supportata con un messaggio esplicito.

@@ -12,6 +12,8 @@
     "gasolio",
     "gpl",
     "metano",
+    "gnl",
+    "hvo",
     "benzina_special",
     "gasolio_special"
   ],
@@ -296,30 +298,30 @@
         },
         {
           "fuel": "gasolio_special",
-          "price": 2.19,
-          "self": true,
-          "updated_at": "2026-10-27T20:41:25Z",
-          "label": "HVOlution"
-        },
-        {
-          "fuel": "gasolio_special",
           "price": 2.623,
           "self": false,
           "updated_at": "2026-10-27T20:41:25Z",
           "label": "Blue Diesel"
         },
         {
-          "fuel": "gasolio_special",
-          "price": 2.523,
-          "self": false,
-          "updated_at": "2026-10-27T20:41:25Z",
-          "label": "HVOlution"
-        },
-        {
           "fuel": "gpl",
           "price": 0.893,
           "self": false,
           "updated_at": "2026-10-24T19:43:17Z"
+        },
+        {
+          "fuel": "hvo",
+          "price": 2.19,
+          "self": true,
+          "updated_at": "2026-10-27T20:41:25Z",
+          "label": "HVOlution"
+        },
+        {
+          "fuel": "hvo",
+          "price": 2.523,
+          "self": false,
+          "updated_at": "2026-10-27T20:41:25Z",
+          "label": "HVOlution"
         },
         {
           "fuel": "metano",
@@ -702,6 +704,12 @@
           "updated_at": "2026-10-25T12:00:54Z"
         },
         {
+          "fuel": "gnl",
+          "price": 2.119,
+          "self": false,
+          "updated_at": "2026-10-25T12:00:54Z"
+        },
+        {
           "fuel": "gpl",
           "price": 0.805,
           "self": false,
@@ -924,44 +932,6 @@
       ]
     },
     {
-      "id": 5320,
-      "name": "DOMITIA SERVICE S.A.S.",
-      "brand": "Api-Ip",
-      "operator": "DOMITIA SERVICE DI ANTONIO D'AMATO S.A.S. IN SIGLA: \"DOMITIA SERVICE S.A.S.\"",
-      "type": "stradale",
-      "address": "VIA DOMITIANA 18 81034",
-      "city": "MONDRAGONE",
-      "province": "CE",
-      "lat": 41.11792238031171,
-      "lon": 13.87674629688263,
-      "prices": [
-        {
-          "fuel": "benzina",
-          "price": 2.006,
-          "self": true,
-          "updated_at": "2026-10-23T14:43:51Z"
-        },
-        {
-          "fuel": "benzina",
-          "price": 2.317,
-          "self": false,
-          "updated_at": "2026-10-23T14:43:51Z"
-        },
-        {
-          "fuel": "gasolio",
-          "price": 2.246,
-          "self": true,
-          "updated_at": "2026-10-23T14:43:51Z"
-        },
-        {
-          "fuel": "gasolio",
-          "price": 2.557,
-          "self": false,
-          "updated_at": "2026-10-23T14:43:51Z"
-        }
-      ]
-    },
-    {
       "id": 5372,
       "name": "stazione di servizio q8 di colella carlo & c. snc",
       "brand": "Q8",
@@ -1066,61 +1036,146 @@
       ]
     },
     {
-      "id": 5379,
-      "name": "Stazione di Servizio Q8 Giliberti Carburanti",
-      "brand": "Q8",
-      "operator": "GILIBERTI CARBURANTI S.R.L.",
+      "id": 5447,
+      "name": "8432 CASERTA",
+      "brand": "Agip Eni",
+      "operator": "ENIMOOV S.P.A.",
       "type": "stradale",
-      "address": "VIA NICOLA SANTAGELO 25 83013",
-      "city": "MERCOGLIANO",
-      "province": "AV",
-      "lat": 40.91621597936952,
-      "lon": 14.748034652778642,
+      "address": "V.le della Libertà, Cavalcavia SNC 81100",
+      "city": "CASERTA",
+      "province": "CE",
+      "lat": 41.066684732453815,
+      "lon": 14.32765362532598,
       "prices": [
         {
           "fuel": "benzina",
-          "price": 1.994,
+          "price": 1.99,
           "self": true,
-          "updated_at": "2026-10-27T11:45:19Z"
+          "updated_at": "2026-10-26T05:58:05Z"
         },
         {
           "fuel": "benzina",
-          "price": 2.204,
+          "price": 2.2,
           "self": false,
-          "updated_at": "2026-10-27T11:45:19Z"
+          "updated_at": "2026-10-27T06:07:30Z"
         },
         {
           "fuel": "gasolio",
-          "price": 2.254,
+          "price": 2.19,
           "self": true,
-          "updated_at": "2026-10-27T11:45:19Z"
+          "updated_at": "2026-10-26T05:58:05Z"
         },
         {
           "fuel": "gasolio",
-          "price": 2.464,
+          "price": 2.4,
           "self": false,
-          "updated_at": "2026-10-27T11:45:19Z"
+          "updated_at": "2026-10-27T06:07:30Z"
         },
         {
           "fuel": "gasolio_special",
-          "price": 2.554,
+          "price": 2.29,
           "self": true,
-          "updated_at": "2026-10-27T11:45:19Z",
-          "label": "Hi-Q Diesel"
+          "updated_at": "2026-10-26T05:58:05Z",
+          "label": "Blue Diesel"
         },
         {
           "fuel": "gasolio_special",
-          "price": 2.714,
+          "price": 2.5,
           "self": false,
-          "updated_at": "2026-10-27T11:45:19Z",
-          "label": "Hi-Q Diesel"
+          "updated_at": "2026-10-27T06:07:30Z",
+          "label": "Blue Diesel"
+        },
+        {
+          "fuel": "hvo",
+          "price": 2.19,
+          "self": true,
+          "updated_at": "2026-10-26T05:58:05Z",
+          "label": "HVOlution"
+        },
+        {
+          "fuel": "hvo",
+          "price": 2.4,
+          "self": false,
+          "updated_at": "2026-10-27T06:07:30Z",
+          "label": "HVOlution"
+        }
+      ]
+    },
+    {
+      "id": 5643,
+      "name": "Multicarburante di Maresca Anna & C. s.n.c.",
+      "brand": "Agip Eni",
+      "operator": "MULTICARBURANTE DI MARESCA MICHELE & C. S.N.C.",
+      "type": "stradale",
+      "address": "Via Taurano 128 84016",
+      "city": "PAGANI",
+      "province": "SA",
+      "lat": 40.755152155426124,
+      "lon": 14.592188000679016,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 1.99,
+          "self": true,
+          "updated_at": "2026-10-26T12:33:06Z"
+        },
+        {
+          "fuel": "benzina",
+          "price": 2.2,
+          "self": false,
+          "updated_at": "2026-10-26T12:33:06Z"
+        },
+        {
+          "fuel": "benzina_special",
+          "price": 2.014,
+          "self": true,
+          "updated_at": "2026-10-27T20:44:38Z",
+          "label": "Blue Super"
+        },
+        {
+          "fuel": "benzina_special",
+          "price": 2.224,
+          "self": false,
+          "updated_at": "2026-10-27T20:44:38Z",
+          "label": "Blue Super"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.19,
+          "self": true,
+          "updated_at": "2026-10-26T12:33:06Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.4,
+          "self": false,
+          "updated_at": "2026-10-26T12:33:06Z"
         },
         {
           "fuel": "gasolio_special",
-          "price": 2.474,
+          "price": 2.29,
+          "self": true,
+          "updated_at": "2026-10-26T12:33:06Z",
+          "label": "Blue Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.5,
           "self": false,
-          "updated_at": "2026-10-27T11:45:19Z",
-          "label": "HiQ Perform+"
+          "updated_at": "2026-10-26T12:33:06Z",
+          "label": "Blue Diesel"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.769,
+          "self": false,
+          "updated_at": "2026-10-26T12:33:06Z"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.899,
+          "self": false,
+          "updated_at": "2026-10-26T12:33:06Z"
         }
       ]
     },
@@ -1173,32 +1228,6 @@
           "price": 2.219,
           "self": true,
           "updated_at": "2026-10-27T08:11:23Z"
-        }
-      ]
-    },
-    {
-      "id": 6700,
-      "name": "FRATTAMAGGIORE VIA ROMA 262 IMP. Q8",
-      "brand": "Q8",
-      "operator": "SERVIZI & GESTIONI ITALIA S.R.L.",
-      "type": "stradale",
-      "address": "VIA ROMA IMP. Q8 262 80027",
-      "city": "FRATTAMAGGIORE",
-      "province": "NA",
-      "lat": 40.93349968936316,
-      "lon": 14.272496311045074,
-      "prices": [
-        {
-          "fuel": "benzina",
-          "price": 1.989,
-          "self": true,
-          "updated_at": "2026-10-27T14:34:07Z"
-        },
-        {
-          "fuel": "gasolio",
-          "price": 2.249,
-          "self": true,
-          "updated_at": "2026-10-27T14:34:07Z"
         }
       ]
     },
@@ -1262,40 +1291,74 @@
       ]
     },
     {
-      "id": 8087,
-      "name": "AREA SERVIZIO IES",
-      "brand": "Pompe Bianche",
-      "operator": "IAPOZZUTO MARIO",
+      "id": 8237,
+      "name": "IMPIANTO ENI N. 08350",
+      "brand": "Agip Eni",
+      "operator": "MICCO ANGELO",
       "type": "stradale",
-      "address": "C.DA CROCELLA 4 82024",
-      "city": "COLLE SANNITA",
+      "address": "VIA PAOLELLA 82100",
+      "city": "BENEVENTO",
       "province": "BN",
-      "lat": 41.37141196450326,
-      "lon": 14.841078221797943,
+      "lat": 41.12985775512544,
+      "lon": 14.794799387454987,
       "prices": [
         {
           "fuel": "benzina",
-          "price": 2.099,
+          "price": 1.99,
           "self": true,
-          "updated_at": "2026-10-23T11:33:00Z"
+          "updated_at": "2026-10-28T06:22:19Z"
         },
         {
           "fuel": "benzina",
-          "price": 2.159,
+          "price": 2.2,
           "self": false,
-          "updated_at": "2026-10-23T11:33:00Z"
+          "updated_at": "2026-10-28T06:22:19Z"
         },
         {
           "fuel": "gasolio",
-          "price": 2.399,
+          "price": 2.19,
           "self": true,
-          "updated_at": "2026-10-23T11:33:00Z"
+          "updated_at": "2026-10-28T06:22:19Z"
         },
         {
           "fuel": "gasolio",
-          "price": 2.459,
+          "price": 2.4,
           "self": false,
-          "updated_at": "2026-10-23T11:33:00Z"
+          "updated_at": "2026-10-28T06:22:19Z"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.29,
+          "self": true,
+          "updated_at": "2026-10-28T06:22:19Z",
+          "label": "Blue Diesel"
+        },
+        {
+          "fuel": "gasolio_special",
+          "price": 2.5,
+          "self": false,
+          "updated_at": "2026-10-28T06:22:19Z",
+          "label": "Blue Diesel"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.759,
+          "self": false,
+          "updated_at": "2026-10-28T06:22:19Z"
+        },
+        {
+          "fuel": "hvo",
+          "price": 2.19,
+          "self": true,
+          "updated_at": "2026-10-28T06:22:19Z",
+          "label": "HVOlution"
+        },
+        {
+          "fuel": "hvo",
+          "price": 2.4,
+          "self": false,
+          "updated_at": "2026-10-28T06:22:19Z",
+          "label": "HVOlution"
         }
       ]
     },
@@ -1362,6 +1425,51 @@
           "self": false,
           "updated_at": "2026-10-26T19:13:07Z",
           "label": "Blue Diesel"
+        }
+      ]
+    },
+    {
+      "id": 44159,
+      "name": "GNL Distributori Papa",
+      "brand": "Q8",
+      "operator": "DISTRIBUTORI PAPA DI GP UNITED S.R.L. & C. S.A.S.",
+      "type": "stradale",
+      "address": "via Pagliarelle snc 80030",
+      "city": "SAN VITALIANO",
+      "province": "NA",
+      "lat": 40.93412374550363,
+      "lon": 14.49169808919919,
+      "prices": [
+        {
+          "fuel": "benzina",
+          "price": 2.039,
+          "self": false,
+          "updated_at": "2026-10-27T14:59:30Z"
+        },
+        {
+          "fuel": "gasolio",
+          "price": 2.254,
+          "self": false,
+          "updated_at": "2026-10-27T14:59:30Z"
+        },
+        {
+          "fuel": "gnl",
+          "price": 2.044,
+          "self": false,
+          "updated_at": "2026-10-27T14:59:30Z"
+        },
+        {
+          "fuel": "gpl",
+          "price": 0.779,
+          "self": false,
+          "updated_at": "2026-10-27T14:59:30Z"
+        },
+        {
+          "fuel": "metano",
+          "price": 1.999,
+          "self": false,
+          "updated_at": "2026-10-27T14:59:30Z",
+          "label": "L-GNC"
         }
       ]
     }
