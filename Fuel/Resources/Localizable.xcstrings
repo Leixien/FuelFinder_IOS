@@ -41,6 +41,16 @@
         }
       }
     },
+    "Autostradale": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Motorway"
+          }
+        }
+      }
+    },
     "Benzina": {
       "localizations": {
         "en": {
@@ -61,6 +71,16 @@
         }
       }
     },
+    "Carburante": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuel"
+          }
+        }
+      }
+    },
     "Carico i prezzi…": {
       "localizations": {
         "en": {
@@ -77,6 +97,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Finding your location…"
+          }
+        }
+      }
+    },
+    "Chiudi": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
           }
         }
       }
@@ -321,6 +351,16 @@
         }
       }
     },
+    "Prezzi comunicati dal gestore · aggiornati %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prices reported by the station · updated %@"
+          }
+        }
+      }
+    },
     "Prezzi non disponibili": {
       "localizations": {
         "en": {
@@ -367,6 +407,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Full service"
+          }
+        }
+      }
+    },
+    "Stradale": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Roadside"
           }
         }
       }

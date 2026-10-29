@@ -47,6 +47,9 @@ struct HomeView: View {
                 .presentationDragIndicator(.visible)
                 .interactiveDismissDisabled()
         }
+        .onChange(of: model.selectedStationID) { _, id in
+            withAnimation { detent = id == nil ? Self.compact : .large }
+        }
         .task { await model.start() }
     }
 
@@ -88,10 +91,16 @@ private struct ResultsSheet: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                if let banner = model.staleBanner {
-                    StaleBannerView(banner: banner)
+                if let selected = model.selectedMatch {
+                    StationDetailView(match: selected, fuel: model.fuel, now: model.now) {
+                        model.selectedStationID = nil
+                    }
+                } else {
+                    if let banner = model.staleBanner {
+                        StaleBannerView(banner: banner)
+                    }
+                    content
                 }
-                content
             }
             .padding(.horizontal, 20)
             .padding(.top, 24)

@@ -47,7 +47,7 @@ struct ModeBadge: View {
             .textCase(.uppercase)
             .padding(.horizontal, 6)
             .padding(.vertical, 3)
-            .background(.quaternary, in: RoundedRectangle(cornerRadius: 5))
+            .background(.fill.tertiary, in: RoundedRectangle(cornerRadius: 5))
     }
 }
 
