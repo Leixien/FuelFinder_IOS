@@ -20,10 +20,10 @@ final class LaunchTests: XCTestCase {
     @MainActor
     func testCheapestCardThenDetailAndBack() {
         let app = launch()
-        XCTAssertTrue(app.element("home.cheapestCard").waitForExistence(timeout: 10))
-        let firstRow = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH 'home.row.'")).firstMatch
-        XCTAssertTrue(firstRow.waitForExistence(timeout: 5))
-        firstRow.tap()
+        let card = app.element("home.cheapestCard")
+        XCTAssertTrue(card.waitForExistence(timeout: 10))
+        // The card is always on screen; list rows can sit below the compact sheet on smaller simulators.
+        card.buttons.firstMatch.tap()
 
         let close = app.element("detail.close")
         XCTAssertTrue(close.waitForExistence(timeout: 5))
