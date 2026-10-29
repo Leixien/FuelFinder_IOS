@@ -17,6 +17,22 @@ final class LaunchTests: XCTestCase {
         XCTAssertTrue(app.element("home.cheapestCard").waitForExistence(timeout: 10))
     }
 
+    @MainActor
+    func testCheapestCardThenDetailAndBack() {
+        let app = launch()
+        XCTAssertTrue(app.element("home.cheapestCard").waitForExistence(timeout: 10))
+        let firstRow = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH 'home.row.'")).firstMatch
+        XCTAssertTrue(firstRow.waitForExistence(timeout: 5))
+        firstRow.tap()
+
+        let close = app.element("detail.close")
+        XCTAssertTrue(close.waitForExistence(timeout: 5))
+        close.tap()
+
+        XCTAssertTrue(close.waitForNonExistence(timeout: 5))
+        XCTAssertTrue(app.element("home.cheapestCard").waitForExistence(timeout: 5))
+    }
+
     /// Going back to the system theme re-presents the results sheet; Info must still close and the card come back.
     @MainActor
     func testSystemThemeResetLeavesTheAppUsable() {

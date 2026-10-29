@@ -34,6 +34,16 @@ enum Formatters {
         return formatter.localizedString(for: date, relativeTo: now)
     }
 
+    /// "29 ottobre 2026" for a `yyyy-MM-dd` reference date, read as an Italian day whatever the device time zone.
+    static func referenceDay(_ pricesReferenceDate: String, locale: Locale = .current) -> String? {
+        guard let day = DataFreshness.referenceDay(pricesReferenceDate),
+              let rome = TimeZone(identifier: "Europe/Rome")
+        else { return nil }
+        var style = Date.FormatStyle(date: .long, time: .omitted, locale: locale)
+        style.timeZone = rome
+        return day.formatted(style)
+    }
+
     /// About 10 real stations have an empty `name`, and many independents have no `brand`.
     static func displayName(of station: Station) -> String {
         [station.brand, station.name]

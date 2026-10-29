@@ -241,16 +241,6 @@
         }
       }
     },
-    "Fonte dati: MIMIT – Osservaprezzi Carburanti": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data source: MIMIT – Osservaprezzi Carburanti"
-          }
-        }
-      }
-    },
     "GNL": {
       "localizations": {
         "en": {
@@ -431,6 +421,26 @@
         }
       }
     },
+    "Passa al tema chiaro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch to light theme"
+          }
+        }
+      }
+    },
+    "Passa al tema scuro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch to dark theme"
+          }
+        }
+      }
+    },
     "Più economici": {
       "localizations": {
         "en": {
@@ -567,26 +577,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Roadside"
-          }
-        }
-      }
-    },
-    "Tema chiaro": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Light theme"
-          }
-        }
-      }
-    },
-    "Tema scuro": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dark theme"
           }
         }
       }

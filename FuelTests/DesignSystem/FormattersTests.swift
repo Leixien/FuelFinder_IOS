@@ -47,6 +47,12 @@ struct FormattersTests {
         #expect(Formatters.spokenPrice(1.5, fuel: .metano).contains(Formatters.price(1.5)))
     }
 
+    /// The day the prices refer to is an Italian day: a device in another time zone must not shift it.
+    @Test func referenceDayIgnoresDeviceTimeZone() {
+        #expect(Formatters.referenceDay("2026-10-29", locale: italian) == "29 ottobre 2026")
+        #expect(Formatters.referenceDay("garbage", locale: italian) == nil)
+    }
+
     private func station(brand: String, name: String) -> Station {
         Station(
             id: 1, name: name, brand: brand, operatorName: "", type: .stradale,

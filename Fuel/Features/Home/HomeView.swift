@@ -10,7 +10,7 @@ struct HomeView: View {
     @State private var detent: PresentationDetent = .height(300)
     @State private var showInfo = false
     @State private var showSheet = true
-    @State private var needsSheetReset = false
+    @State private var themeWhenInfoOpened: AppTheme = .system
     @AppStorage(AppTheme.storageKey) private var theme: AppTheme = .system
     @Environment(\.colorScheme) private var colorScheme
     @Namespace private var mapScope
@@ -47,11 +47,9 @@ struct HomeView: View {
                     .presentationDragIndicator(.visible)
                     .interactiveDismissDisabled()
             }
-            .onChange(of: theme) { _, new in
-                guard new == .system else { return }
-                needsSheetReset = true
-                if !showInfo {
-                    resetSheetIfNeeded()
+            .onChange(of: showInfo) { _, isShown in
+                if isShown {
+                    themeWhenInfoOpened = theme
                 }
             }
             .onChange(of: compactHeight) { old, new in
@@ -66,10 +64,9 @@ struct HomeView: View {
     }
 
     /// ponytail: preferredColorScheme(nil) does not reach an already presented sheet, so going back to the system
-    /// theme re-presents it, once Info (its child) has closed; drop this if SwiftUI fixes the override propagation.
+    /// theme (only possible from Info) re-presents it once Info has closed; drop this if SwiftUI fixes the propagation.
     private func resetSheetIfNeeded() {
-        guard needsSheetReset else { return }
-        needsSheetReset = false
+        guard themeWhenInfoOpened != .system, theme == .system else { return }
         showSheet = false
         Task { showSheet = true }
     }
@@ -101,20 +98,22 @@ struct HomeView: View {
     }
 
     private var topBar: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .top, spacing: 10) {
             // Scrolls instead of clipping when a long fuel name or a large text size widens the chips.
             ScrollView(.horizontal) {
                 FilterChips(fuel: $model.fuel, mode: $model.mode, sort: $model.sort)
-                    .padding(.vertical, 6)
+                    // Room for the chip shadows inside the clipped scroll area.
+                    .padding(6)
             }
             .scrollIndicators(.hidden)
-            .scrollClipDisabled()
+            // Gives back the shadow room on the outer edges only, so the chips stop short of the corner buttons.
+            .padding([.leading, .vertical], -6)
             VStack(spacing: 8) {
                 VStack(spacing: 0) {
                     controlButton(colorScheme == .dark ? "sun.max.fill" : "moon.fill") {
                         theme = AppTheme.toggled(from: colorScheme)
                     }
-                    .accessibilityLabel(Text(colorScheme == .dark ? "Tema chiaro" : "Tema scuro"))
+                    .accessibilityLabel(Text(colorScheme == .dark ? "Passa al tema chiaro" : "Passa al tema scuro"))
                     .accessibilityIdentifier("home.themeToggle")
                     Divider().frame(width: 44)
                     controlButton("info.circle") { showInfo = true }
@@ -127,6 +126,8 @@ struct HomeView: View {
                 MapCompass(scope: mapScope)
             }
             .buttonBorderShape(.roundedRectangle)
+            // The 44 pt buttons keep a fixed frame: past this size the glyphs would spill out of it.
+            .dynamicTypeSize(...DynamicTypeSize.accessibility1)
         }
         .padding(.horizontal)
         .padding(.top, 8)

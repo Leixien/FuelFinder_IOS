@@ -16,13 +16,17 @@ struct InfoView: View {
         NavigationStack {
             List {
                 Section("Dati") {
-                    // Required by the IODL 2.0 licence: keep it whole and linked.
+                    // Required by the IODL 2.0 licence: whole, linked and in Italian in every language.
                     Link(destination: payload?.source.url ?? Self.mimitURL) {
-                        Label("Fonte dati: MIMIT – Osservaprezzi Carburanti", systemImage: "building.columns")
+                        Label {
+                            Text(verbatim: "Fonte dati: MIMIT – Osservaprezzi Carburanti")
+                        } icon: {
+                            Image(systemName: "building.columns")
+                        }
                     }
                     LabeledContent("Licenza dei dati", value: "IODL 2.0")
-                    if let day = payload.flatMap({ DataFreshness.referenceDay($0.pricesReferenceDate) }) {
-                        LabeledContent("Prezzi del", value: day.formatted(.dateTime.day().month(.wide).year()))
+                    if let day = payload.flatMap({ Formatters.referenceDay($0.pricesReferenceDate) }) {
+                        LabeledContent("Prezzi del", value: day)
                     }
                 }
                 Section("App") {

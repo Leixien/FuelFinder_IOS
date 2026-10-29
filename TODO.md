@@ -25,16 +25,18 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 - [x] Test unitari per tutto quanto sopra (copertura ≥ 80 %: Domain/Data ~99 %, 30 test)
 
 ## Fase 2 — UI MVP
-- [ ] `LocationService` async con gestione permessi e stato "negato"
-- [ ] `NearbyListView` + ViewModel (ordinamento per distanza, prezzo selezionato in evidenza)
-- [ ] `MapView` con annotazioni, cluster e prezzo sul marker
-- [ ] `FuelTypePicker` + `ServiceModePicker` persistiti in `UserDefaults`
-- [ ] `StationDetailView` con tutti i prezzi, "Indicazioni" (Apple Maps), data aggiornamento
-- [ ] `InfoView`: attribuzione MIMIT, licenza, link repo, versione
-- [ ] Banner "dati più vecchi di 48 h" e stato offline
-- [ ] Empty state e error state per ogni schermata
-- [ ] Localizzazione IT/EN completa
-- [ ] Dark mode e Dynamic Type verificati
+Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio persistente), piano: `docs/superpowers/plans/2026-10-29-fase2-ui.md`.
+- [x] `LocationService` async con gestione permessi e stato "negato"
+- [x] Lista nel foglio + `HomeViewModel` (ordinamento per prezzo o distanza, card "Più economico", raggio 5→10→25 km)
+- [x] Mappa con prezzo sul marker, il più economico in verde (niente cluster: pin limitati al raggio, vedi Decisioni)
+- [x] Chip carburante / self-servito / ordinamento persistiti in `UserDefaults`
+- [x] `StationDetailView` con tutti i prezzi, "Indicazioni" (Apple Maps), data aggiornamento
+- [x] `InfoView`: attribuzione MIMIT, licenza, link repo, versione, ritorno al tema di sistema
+- [x] Banner "dati più vecchi di 48 h" e stato offline
+- [x] Empty state e error state per ogni schermata
+- [x] Localizzazione IT/EN completa
+- [x] Dark mode e Dynamic Type verificati (interruttore tema rapido in alto a destra)
+- [ ] Verifica su dispositivo reale: posizione negata, VoiceOver completo, guida con telefono sul supporto
 
 ## Fase 3 — Rilascio
 - [ ] Icona app e screenshot store
@@ -44,6 +46,9 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 - [ ] Pubblicazione App Store
 
 ## Backlog (post-MVP)
+- [ ] "Cerca in quest'area" quando si sposta la mappa
+- [ ] Layout a colonna del dettaglio per le taglie di testo Accessibility (oggi la griglia a 3 colonne si stringe)
+- [ ] Focus VoiceOver sul dettaglio quando si apre; età del prezzo nell'etichetta VoiceOver delle righe
 - [ ] Preferiti (locale)
 - [ ] Storico prezzi per stazione (richiede endpoint storico da `fuel-data`)
 - [ ] Widget "stazione più economica vicino a casa"
@@ -60,7 +65,9 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 
 ## Decisioni da confermare
 - Nome di lavoro "Fuel" e bundle id `com.leixien.fuel`: provvisori.
-- Cluster delle annotazioni: MapKit nativo (`MapKit` clustering via `MKClusterAnnotation` non è esposto in SwiftUI puro) — valutare clustering manuale per zoom level vs. wrapper UIKit.
+- Cluster delle annotazioni: non servono. I pin sono solo i distributori nel raggio di ricerca (max 25 km, qualche centinaio), spostare la mappa non ne carica altri. Scartati: clustering manuale e wrapper UIKit. Se arriva "Cerca in quest'area" la questione si riapre.
+- Tornare al tema di sistema ripresenta il foglio dei risultati: `preferredColorScheme(nil)` non aggiorna un foglio già presentato (limite SwiftUI). Scartato: wrapper UIKit su `overrideUserInterfaceStyle`.
+- Prezzo più vecchio di 7 giorni: resta in lista con età in arancione ma non vince la card (decisione dell'utente).
 
 - Swift 6 language mode (`SWIFT_VERSION = 6.0`) invece di Swift 5.10 + `SWIFT_STRICT_CONCURRENCY = complete`: stesso controllo, ma violazioni come errori. Alternativa scartata perché Xcode 27 / Swift 6.4 è già lo standard.
 - Simulatore di riferimento `iPhone 17` (non `iPhone 16`): con Xcode 27 `OS:latest` è iOS 27, dove iPhone 16 non esiste. In CI si sceglie il primo iPhone disponibile.
@@ -81,3 +88,4 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 ## Blocchi noti
 - [!] La pipeline `FuelFinder_DATA` esiste ma il download dal MIMIT può essere bloccato (vedi il suo `TODO.md`): finché `stations.json` non è online l'app non ha dati reali.
 - Banner "dati vecchi" (Fase 2): basarlo su `prices_reference_date`, non su `generated_at` (la pipeline può ripubblicare dati vecchi con un `generated_at` nuovo).
+- 2026-10-29/30: Fase 2 UI MVP. Design scelto con mockup (mappa + foglio, stile Apple). 73 unit test + 3 UI test verdi, `swiftlint --strict` pulito. Revisori indipendenti sui task 6–8, correzioni applicate. In locale i simulatori condivisi sparivano a metà sessione: test eseguiti su un simulatore dedicato "FuelFinder iPhone 17" (iOS 27).
