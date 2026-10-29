@@ -23,6 +23,10 @@ struct FormattersTests {
         #expect(Formatters.distance(1240, locale: italian) == "1,2 km")
     }
 
+    @Test func radiusHasNoDecimals() {
+        #expect(Formatters.radius(10000, locale: italian) == "10 km")
+    }
+
     @Test func displayNameFallsBack() {
         #expect(Formatters.displayName(of: station(brand: "Q8", name: "AGICAM")) == "Q8")
         #expect(Formatters.displayName(of: station(brand: "", name: "AGICAM")) == "AGICAM")

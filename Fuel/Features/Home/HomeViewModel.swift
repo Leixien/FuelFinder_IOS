@@ -30,6 +30,8 @@ final class HomeViewModel {
     private(set) var content: Content = .loading
     private(set) var staleBanner: StaleBanner?
     private(set) var payload: StationsPayload?
+    /// Last known user position; the map frames the search around it.
+    private(set) var origin: CLLocationCoordinate2D?
     var selectedStationID: Station.ID?
 
     var fuel: FuelType {
@@ -47,7 +49,6 @@ final class HomeViewModel {
     @ObservationIgnored private let environment: AppEnvironment
     @ObservationIgnored private let defaults: UserDefaults
     @ObservationIgnored private var authorization: LocationAuthorization
-    @ObservationIgnored private var origin: CLLocationCoordinate2D?
     @ObservationIgnored private var refreshError: DataError?
 
     init(environment: AppEnvironment, defaults: UserDefaults = .standard) {
@@ -61,6 +62,18 @@ final class HomeViewModel {
 
     var now: Date {
         environment.now()
+    }
+
+    var result: NearbyResult? {
+        if case let .results(result) = content {
+            result
+        } else {
+            nil
+        }
+    }
+
+    var selectedMatch: StationMatch? {
+        result?.matches.first { $0.id == selectedStationID }
     }
 
     /// Cached data first, then a refresh and location updates side by side, until the calling task is cancelled.

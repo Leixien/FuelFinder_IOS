@@ -21,6 +21,26 @@
         }
       }
     },
+    "Apri Impostazioni": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Settings"
+          }
+        }
+      }
+    },
+    "Attiva la posizione per vedere i distributori più economici vicino a te.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turn on location to see the cheapest stations near you."
+          }
+        }
+      }
+    },
     "Benzina": {
       "localizations": {
         "en": {
@@ -41,12 +61,52 @@
         }
       }
     },
+    "Carico i prezzi…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading prices…"
+          }
+        }
+      }
+    },
+    "Cerco la tua posizione…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finding your location…"
+          }
+        }
+      }
+    },
     "Connessione assente. Riprova più tardi.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "No connection. Try again later."
+          }
+        }
+      }
+    },
+    "Dati di %lld giorni fa": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data from %lld days ago"
+          }
+        }
+      }
+    },
+    "Dati di %lld giorni fa · offline": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data from %lld days ago · offline"
           }
         }
       }
@@ -141,6 +201,16 @@
         }
       }
     },
+    "Indicazioni": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Directions"
+          }
+        }
+      }
+    },
     "Metano": {
       "localizations": {
         "en": {
@@ -151,12 +221,152 @@
         }
       }
     },
+    "Nessun distributore entro %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No stations within %@"
+          }
+        }
+      }
+    },
+    "Nessun impianto vende %@ qui vicino. Prova un altro carburante.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No station nearby sells %@. Try another fuel."
+          }
+        }
+      }
+    },
+    "Nessun prezzo recente": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No recent prices"
+          }
+        }
+      }
+    },
+    "Più economici": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cheapest"
+          }
+        }
+      }
+    },
+    "Più economici qui vicino": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cheapest nearby"
+          }
+        }
+      }
+    },
+    "Più economico · entro %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cheapest · within %@"
+          }
+        }
+      }
+    },
+    "Più vicini": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nearest"
+          }
+        }
+      }
+    },
+    "Più vicini a te": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nearest to you"
+          }
+        }
+      }
+    },
+    "Posizione disattivata": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Location off"
+          }
+        }
+      }
+    },
     "Prezzi carburanti in arrivo": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "Fuel prices coming soon"
+          }
+        }
+      }
+    },
+    "Prezzi non disponibili": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prices unavailable"
+          }
+        }
+      }
+    },
+    "Qui vicino nessun distributore ha aggiornato il prezzo negli ultimi 7 giorni.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No station nearby has updated its price in the last 7 days."
+          }
+        }
+      }
+    },
+    "Riprova": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try again"
+          }
+        }
+      }
+    },
+    "Self": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Self-service"
+          }
+        }
+      }
+    },
+    "Servito": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Full service"
           }
         }
       }

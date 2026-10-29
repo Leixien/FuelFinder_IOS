@@ -21,6 +21,12 @@ enum Formatters {
         )
     }
 
+    /// Search radius, always whole kilometres ("entro 10 km").
+    static func radius(_ metres: Double, locale: Locale = .current) -> String {
+        Measurement(value: metres / 1000, unit: UnitLength.kilometers)
+            .formatted(.measurement(width: .abbreviated, usage: .asProvided).locale(locale))
+    }
+
     static func age(of date: Date, now: Date, locale: Locale = .current) -> String {
         let formatter = RelativeDateTimeFormatter()
         formatter.unitsStyle = .short
