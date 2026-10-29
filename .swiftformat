@@ -2,3 +2,5 @@
 --indent 4
 --maxwidth 140
 --exclude DerivedData
+--trailing-commas never
+--disable wrapMultilineStatementBraces

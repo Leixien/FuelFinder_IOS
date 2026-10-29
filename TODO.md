@@ -15,14 +15,14 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 - [x] Issue template (bug / feature) e PR template
 
 ## Fase 1 — Dominio e dati
-- [ ] `FuelType` enum (allineato a `fuel_types` del contratto)
-- [ ] Modelli `Station`, `FuelPrice`, `StationsPayload` (`Codable`, `Sendable`)
-- [ ] Fixture `FuelTests/Fixtures/stations_sample.json` (≈ 30 stazioni reali della Campania, schema v1)
-- [ ] `StationsDataSource` con URLSession, ETag/`If-None-Match`, gestione `schema_version`
-- [ ] `FileCache` (ultimo payload su disco + data download)
-- [ ] `StationsRepository` (cache-first, refresh in background, errori tipizzati)
-- [ ] `DistanceCalculator` (Haversine) e `StationFilter` (carburante, self/servito, raggio)
-- [ ] Test unitari per tutto quanto sopra (copertura ≥ 80 %)
+- [x] `FuelType` enum (allineato a `fuel_types` del contratto)
+- [x] Modelli `Station`, `FuelPrice`, `StationsPayload` (`Codable`, `Sendable`)
+- [x] Fixture `FuelTests/Fixtures/stations_sample.json` (≈ 30 stazioni reali della Campania, schema v1)
+- [x] `StationsDataSource` con URLSession, ETag/`If-None-Match`, gestione `schema_version`
+- [x] `FileCache` (ultimo payload su disco + data download)
+- [x] `StationsRepository` (cache-first, refresh in background, errori tipizzati)
+- [x] `DistanceCalculator` (Haversine) e `StationFilter` (carburante, self/servito, raggio)
+- [x] Test unitari per tutto quanto sopra (copertura ≥ 80 %: Domain/Data ~99 %, 30 test)
 
 ## Fase 2 — UI MVP
 - [ ] `LocationService` async con gestione permessi e stato "negato"
@@ -53,7 +53,10 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 
 ## Richieste a fuel-data
 - [ ] Definire URL di produzione di `stations.json` e politica di cache/CDN
-- [ ] Pubblicare anche una fixture ufficiale ridotta per i test dei client
+- [ ] Pubblicare anche una fixture ufficiale ridotta per i test dei client (quella attuale è generata a mano dai CSV del 2026-10-28)
+- [ ] Mappatura dei carburanti fuori contratto presenti nei CSV reali: HVO / HVOlution / HVO100 (oggi finirebbero in `gasolio_special`?), GNL e L-GNC (non rappresentabili: nella fixture sono esclusi)
+- [ ] Tipo impianto "Pompe Bianche" nei CSV: confermare che diventi `altro`
+- [ ] Specificare la nullabilità di `brand`, `operator`, `name`, `address` (il client oggi li assume sempre presenti)
 
 ## Decisioni da confermare
 - Nome di lavoro "Fuel" e bundle id `com.leixien.fuel`: provvisori.
@@ -64,9 +67,15 @@ Legenda: `[ ]` da fare · `[~]` in corso · `[x]` fatto · `[!]` bloccato
 - `DATA_URL` provvisorio `https://leixien.github.io/fuel-data/stations.json` (GitHub Pages di `fuel-data`), da sostituire quando la pipeline pubblica l'URL reale. Esposto all'app come chiave Info.plist `DataURL`.
 - Licenza cambiata da MIT (commit iniziale) ad Apache 2.0 come da `infoProgetto.md`.
 - Contatto del Code of Conduct: profilo GitHub del maintainer. Valutare un indirizzo email dedicato.
+- Modelli di dominio solo `Decodable` (non `Codable`): la cache salva i byte grezzi del JSON, quindi l'encoding non serve.
+- Decoding tollerante: prezzi con `fuel` sconosciuto vengono scartati e `type` sconosciuto diventa `altro`, così un'aggiunta in `fuel-data` non rende illeggibile l'intero file. Alternativa scartata: decoding rigido (un carburante nuovo = app senza dati).
+- Prezzo mostrato: il più basso nella modalità richiesta (più voci `*_special` per stazione); se manca, quello dell'altra modalità (la UI mostrerà il badge confrontando `isSelf`).
+- Cache in Application Support esclusa dal backup iCloud, non in Caches (che iOS può svuotare: romperebbe l'offline-first).
+- `StationsRepository.refresh()` non deduplica chiamate concorrenti: va chiamato da un solo punto (Fase 2).
 
 ## Note di sessione
 - 2026-10-29: Fase 0 bootstrap (tranne CI non ancora verificata). Build, unit test (Swift Testing), UI smoke test e `swiftlint --strict` verdi su iPhone 17 / iOS 27. Se un test fallisce, `xcodebuild test` può bloccarsi su `simctl diagnose`: usare `-collect-test-diagnostics never` in locale.
+- 2026-10-29: Fase 1 completata. CI verde al primo push. Fixture: 30 stazioni reali di NA/SA/CE/AV/BN dai CSV MIMIT del 2026-10-28 (separatore attuale `|`).
 
 ## Blocchi noti
 - [!] La pipeline `fuel-data` non esiste ancora: fino ad allora i client lavorano sulla fixture locale.

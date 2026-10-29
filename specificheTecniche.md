@@ -102,7 +102,7 @@ File CSV MIMIT, pubblicati ogni mattina:
 - `anagrafica_impianti_attivi.csv`: idImpianto; Gestore; Bandiera; Tipo Impianto; Nome Impianto; Indirizzo; Comune; Provincia; Latitudine; Longitudine
 - `prezzo_alle_8.csv`: idImpianto; descCarburante; prezzo; isSelf (0/1); dtComu (`gg/mm/aaaa hh:mm:ss`)
 - Prima riga: `Estrazione del AAAA-MM-GG`, seconda riga: header.
-- **Attenzione**: dal 10 febbraio 2026 il MIMIT ha cambiato il separatore di campo (non è più garantito `;`). Verificare sul file reale prima di scrivere parser; parser trovati online precedenti a quella data non funzionano.
+- **Attenzione**: dal 10 febbraio 2026 il MIMIT ha cambiato il separatore di campo (non è più garantito `;`). Verificare sul file reale prima di scrivere parser (al 2026-10-28 è `|`); parser trovati online precedenti a quella data non funzionano.
 - Le coordinate sono inserite dai gestori su base volontaria e non sempre verificate: aspettarsi outlier.
 
 ## 4. Funzionalità MVP
