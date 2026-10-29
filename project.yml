@@ -17,7 +17,11 @@ targets:
   Fuel:
     type: application
     platform: iOS
-    sources: [Fuel]
+    sources:
+      - Fuel
+      # Shared with FuelTests: drives SwiftUI previews and the -uiTesting launch mode.
+      - path: FuelTests/Fixtures/stations_sample.json
+        buildPhase: resources
     info:
       path: Fuel/Info.plist
       properties:
