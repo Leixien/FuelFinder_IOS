@@ -8,6 +8,11 @@ struct HomeView: View {
     /// Height of the banner plus the cheapest card, measured: the phone-mount view must never cut "Indicazioni".
     @State private var compactHeight: CGFloat = 300
     @State private var detent: PresentationDetent = .height(300)
+    @State private var showInfo = false
+    @State private var showSheet = true
+    @State private var needsSheetReset = false
+    @AppStorage(AppTheme.storageKey) private var theme: AppTheme = .system
+    @Environment(\.colorScheme) private var colorScheme
     @Namespace private var mapScope
 
     private static let italy = MKCoordinateRegion(
@@ -20,6 +25,56 @@ struct HomeView: View {
     }
 
     var body: some View {
+        map
+            .mapControls {}
+            // Frames the search in the part of the map the sheet leaves visible.
+            .safeAreaPadding(.bottom, compactHeight)
+            .overlay(alignment: .top) { topBar }
+            .mapScope(mapScope)
+            .onChange(of: searchKey) {
+                // Never yank the map away from someone who panned it; the location button recentres.
+                guard !camera.positionedByUser, let area = searchArea else { return }
+                withAnimation { camera = .region(area) }
+            }
+            .sheet(isPresented: $showSheet) {
+                ResultsSheet(model: model, compactHeight: $compactHeight)
+                    // Presented from inside the results sheet: a view can present only one sheet at a time.
+                    .sheet(isPresented: $showInfo, onDismiss: resetSheetIfNeeded) { InfoView(payload: model.payload) }
+                    .presentationDetents([compact, .medium, .large], selection: $detent)
+                    .presentationBackgroundInteraction(.enabled)
+                    // Opaque, not glass: the map showing through costs contrast when read from a phone mount.
+                    .presentationBackground(.background)
+                    .presentationDragIndicator(.visible)
+                    .interactiveDismissDisabled()
+            }
+            .onChange(of: theme) { _, new in
+                guard new == .system else { return }
+                needsSheetReset = true
+                if !showInfo {
+                    resetSheetIfNeeded()
+                }
+            }
+            .onChange(of: compactHeight) { old, new in
+                if detent == .height(old) {
+                    detent = .height(new)
+                }
+            }
+            .onChange(of: model.selectedStationID) { _, id in
+                withAnimation { detent = id == nil ? compact : .large }
+            }
+            .task { await model.start() }
+    }
+
+    /// ponytail: preferredColorScheme(nil) does not reach an already presented sheet, so going back to the system
+    /// theme re-presents it, once Info (its child) has closed; drop this if SwiftUI fixes the override propagation.
+    private func resetSheetIfNeeded() {
+        guard needsSheetReset else { return }
+        needsSheetReset = false
+        showSheet = false
+        Task { showSheet = true }
+    }
+
+    private var map: some View {
         Map(position: $camera, selection: $model.selectedStationID, scope: mapScope) {
             UserAnnotation()
             ForEach(otherMatches) { match in
@@ -30,34 +85,6 @@ struct HomeView: View {
                 pin(cheapest, isBest: true)
             }
         }
-        .mapControls {}
-        // Frames the search in the part of the map the sheet leaves visible.
-        .safeAreaPadding(.bottom, compactHeight)
-        .overlay(alignment: .top) { topBar }
-        .mapScope(mapScope)
-        .onChange(of: searchKey) {
-            // Never yank the map away from someone who panned it; the location button recentres.
-            guard !camera.positionedByUser, let area = searchArea else { return }
-            withAnimation { camera = .region(area) }
-        }
-        .sheet(isPresented: .constant(true)) {
-            ResultsSheet(model: model, compactHeight: $compactHeight)
-                .presentationDetents([compact, .medium, .large], selection: $detent)
-                .presentationBackgroundInteraction(.enabled)
-                // Opaque, not glass: the map showing through costs contrast when read from a phone mount.
-                .presentationBackground(.background)
-                .presentationDragIndicator(.visible)
-                .interactiveDismissDisabled()
-        }
-        .onChange(of: compactHeight) { old, new in
-            if detent == .height(old) {
-                detent = .height(new)
-            }
-        }
-        .onChange(of: model.selectedStationID) { _, id in
-            withAnimation { detent = id == nil ? compact : .large }
-        }
-        .task { await model.start() }
     }
 
     private var otherMatches: [StationMatch] {
@@ -83,6 +110,19 @@ struct HomeView: View {
             .scrollIndicators(.hidden)
             .scrollClipDisabled()
             VStack(spacing: 8) {
+                VStack(spacing: 0) {
+                    controlButton(colorScheme == .dark ? "sun.max.fill" : "moon.fill") {
+                        theme = AppTheme.toggled(from: colorScheme)
+                    }
+                    .accessibilityLabel(Text(colorScheme == .dark ? "Tema chiaro" : "Tema scuro"))
+                    .accessibilityIdentifier("home.themeToggle")
+                    Divider().frame(width: 44)
+                    controlButton("info.circle") { showInfo = true }
+                        .accessibilityLabel(Text("Informazioni"))
+                        .accessibilityIdentifier("home.info")
+                }
+                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                .shadow(color: .black.opacity(0.12), radius: 4, y: 1)
                 MapUserLocationButton(scope: mapScope)
                 MapCompass(scope: mapScope)
             }
@@ -90,6 +130,16 @@ struct HomeView: View {
         }
         .padding(.horizontal)
         .padding(.top, 8)
+    }
+
+    private func controlButton(_ systemImage: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: systemImage)
+                .font(.title3)
+                .frame(width: 44, height: 44)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 
     /// What the camera follows: a new position or a widened radius.

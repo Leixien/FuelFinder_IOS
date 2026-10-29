@@ -51,12 +51,32 @@
         }
       }
     },
+    "App": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App"
+          }
+        }
+      }
+    },
     "Apri Impostazioni": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "Open Settings"
+          }
+        }
+      }
+    },
+    "Aspetto": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appearance"
           }
         }
       }
@@ -151,12 +171,32 @@
         }
       }
     },
+    "Codice sorgente su GitHub": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source code on GitHub"
+          }
+        }
+      }
+    },
     "Connessione assente. Riprova più tardi.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "No connection. Try again later."
+          }
+        }
+      }
+    },
+    "Dati": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data"
           }
         }
       }
@@ -187,6 +227,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Station"
+          }
+        }
+      }
+    },
+    "Fine": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        }
+      }
+    },
+    "Fonte dati: MIMIT – Osservaprezzi Carburanti": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data source: MIMIT – Osservaprezzi Carburanti"
           }
         }
       }
@@ -277,6 +337,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "Directions"
+          }
+        }
+      }
+    },
+    "Informazioni": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
+          }
+        }
+      }
+    },
+    "Licenza dei dati": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data licence"
+          }
+        }
+      }
+    },
+    "Licenza del codice": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Code licence"
           }
         }
       }
@@ -411,6 +501,16 @@
         }
       }
     },
+    "Prezzi del": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prices as of"
+          }
+        }
+      }
+    },
     "Prezzi non disponibili": {
       "localizations": {
         "en": {
@@ -467,6 +567,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "Roadside"
+          }
+        }
+      }
+    },
+    "Tema chiaro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light theme"
+          }
+        }
+      }
+    },
+    "Tema scuro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dark theme"
+          }
+        }
+      }
+    },
+    "Usa impostazioni di sistema": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use system setting"
+          }
+        }
+      }
+    },
+    "Versione": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version"
           }
         }
       }
