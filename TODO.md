@@ -39,7 +39,8 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 - [ ] Verifica su dispositivo reale: posizione negata, VoiceOver completo, guida con telefono sul supporto
 
 ## Fase 3 — Rilascio
-- [ ] Icona app e screenshot store
+- [x] Icona app (2026-10-30): R + strada + pompa corallo, aspetto chiaro principale. `Fuel/Resources/AppIcon.icon` (Icon Composer, Liquid Glass a livelli, iOS 26+; scuro via `fill-specializations` per livello) e `AppIcon.appiconset` (PNG chiaro/scuro/tinto per iOS 17–18). Sorgenti SVG e livelli in `docs/brand/icon/`; anteprime: `ictool` in `Icon Composer.app/Contents/Executables`
+- [ ] Screenshot store
 - [x] Nome definitivo: **Refyl** (2026-10-30). App Store IT/US: nessuna app con questo nome. TMview (EUIPO, UIBM, WIPO): nessun marchio REFYL; simili REFYLL/REFYLD solo in classi 3/21/35. Rischio noto e accettato dall'utente: suona come "refill", registrato in classe 9/42 (es. EUIPO 018284885 BM Ventures, UIBM REFILL S.R.L.). Prima di depositare il marchio, parere di un consulente. Domini liberi: `refyl.app`, `refyl.it`. Testi per lo store: `docs/release/app-store-listing.md`
 - [x] Privacy manifest (`PrivacyInfo.xcprivacy`), privacy policy (`PRIVACY.md`) e risposte per la nutrition label (`docs/release/app-store-privacy.md`: "Data Not Collected"); da inserire in App Store Connect
 - [ ] TestFlight pubblico
