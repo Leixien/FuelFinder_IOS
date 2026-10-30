@@ -6,6 +6,12 @@ struct FilterChips: View {
     @Binding var sort: StationSort
 
     var body: some View {
+        GlassGroup(spacing: 8) {
+            chips
+        }
+    }
+
+    private var chips: some View {
         HStack(spacing: 8) {
             Menu {
                 Picker(selection: $fuel) {
@@ -45,8 +51,7 @@ struct FilterChips: View {
             .padding(.vertical, 8)
             // A full 44 pt target: these get tapped on a phone mount.
             .frame(minHeight: 44)
-            .background(.regularMaterial, in: Capsule())
-            .shadow(color: .black.opacity(0.12), radius: 4, y: 1)
+            .glassSurface(in: Capsule(), interactive: true)
     }
 }
 

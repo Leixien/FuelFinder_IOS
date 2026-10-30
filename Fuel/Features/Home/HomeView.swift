@@ -50,8 +50,8 @@ struct HomeView: View {
                     .sheet(isPresented: $showInfo, onDismiss: resetSheetIfNeeded) { InfoView(payload: model.payload) }
                     .presentationDetents([compact, .medium, .large], selection: $detent)
                     .presentationBackgroundInteraction(.enabled)
-                    // Opaque, not glass: the map showing through costs contrast when read from a phone mount.
-                    .presentationBackground(.background)
+                    // System sheet: Liquid Glass at the compact height on iOS 26, opaque when raised and on earlier
+                    // versions. The card's text sits on it directly, so its contrast is checked in both themes.
                     .presentationDragIndicator(.visible)
                     .interactiveDismissDisabled()
             }
@@ -136,8 +136,7 @@ struct HomeView: View {
                         .accessibilityLabel(Text("Informazioni"))
                         .accessibilityIdentifier("home.info")
                 }
-                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
-                .shadow(color: .black.opacity(0.12), radius: 4, y: 1)
+                .glassSurface(in: RoundedRectangle(cornerRadius: 12), interactive: true)
                 MapUserLocationButton(scope: mapScope)
                 MapCompass(scope: mapScope)
             }
