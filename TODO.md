@@ -86,6 +86,6 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 - 2026-10-29: Fase 1 completata. CI verde al primo push. Fixture: 30 stazioni reali di NA/SA/CE/AV/BN dai CSV MIMIT del 2026-10-28 (separatore attuale `|`).
 
 ## Blocchi noti
-- [!] La pipeline `FuelFinder_DATA` esiste ma il download dal MIMIT può essere bloccato (vedi il suo `TODO.md`): finché `stations.json` non è online l'app non ha dati reali.
+- [x] `stations.json` online dal 2026-10-30: il MIMIT blocca i runner GitHub, quindi `FuelFinder_DATA` scarica dall'homelab del maintainer e GitHub pubblica su Pages. L'app ha dati reali senza `-uiTesting`.
 - Banner "dati vecchi" (Fase 2): basarlo su `prices_reference_date`, non su `generated_at` (la pipeline può ripubblicare dati vecchi con un `generated_at` nuovo).
 - 2026-10-29/30: Fase 2 UI MVP. Design scelto con mockup (mappa + foglio, stile Apple). 73 unit test + 3 UI test verdi, `swiftlint --strict` pulito. Revisori indipendenti sui task 6–8, correzioni applicate. In locale i simulatori condivisi sparivano a metà sessione: test eseguiti su un simulatore dedicato "FuelFinder iPhone 17" (iOS 27).
