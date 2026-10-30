@@ -62,6 +62,14 @@ struct DirectionsButton: View {
     let station: Station
 
     var body: some View {
+        if #available(iOS 26, *) {
+            button.buttonStyle(.glassProminent)
+        } else {
+            button.buttonStyle(.borderedProminent)
+        }
+    }
+
+    private var button: some View {
         Button {
             let item = MKMapItem(placemark: MKPlacemark(coordinate: station.coordinate))
             item.name = Formatters.displayName(of: station)
@@ -71,7 +79,6 @@ struct DirectionsButton: View {
                 .font(.headline)
                 .frame(maxWidth: .infinity)
         }
-        .buttonStyle(.borderedProminent)
         .controlSize(.large)
         .tint(.best)
         .foregroundStyle(.onBest)

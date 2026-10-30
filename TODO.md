@@ -67,6 +67,7 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 - Nome di lavoro "Fuel" e bundle id `com.leixien.fuel`: provvisori.
 - Cluster delle annotazioni: non servono. La mappa mostra i distributori dell'area inquadrata, al massimo 150 (prima i prezzi recenti, poi i più economici); card e lista restano sulla ricerca "vicino a te". Scartati: clustering manuale e wrapper UIKit (decisione dell'utente dopo la prova su iPhone, 2026-10-30).
 - Tornare al tema di sistema ripresenta il foglio dei risultati: `preferredColorScheme(nil)` non aggiorna un foglio già presentato (limite SwiftUI). Scartato: wrapper UIKit su `overrideUserInterfaceStyle`.
+- Liquid Glass (decisione dell'utente, 2026-10-30): minimo iOS 17 invariato; chip, controlli dell'angolo, foglio e "Indicazioni" in Liquid Glass da iOS 26 (`DesignSystem/Glass.swift`), materiale sfocato e foglio opaco sotto. Prezzi e pin restano su superfici piene per la leggibilità in auto. Scartato: alzare il minimo a iOS 26.
 - Prezzo più vecchio di 7 giorni: resta in lista con età in arancione ma non vince la card (decisione dell'utente).
 
 - Swift 6 language mode (`SWIFT_VERSION = 6.0`) invece di Swift 5.10 + `SWIFT_STRICT_CONCURRENCY = complete`: stesso controllo, ma violazioni come errori. Alternativa scartata perché Xcode 27 / Swift 6.4 è già lo standard.
