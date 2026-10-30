@@ -41,7 +41,7 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 ## Fase 3 — Rilascio
 - [ ] Icona app e screenshot store
 - [ ] Scelta del nome definitivo (verifica disponibilità su App Store e marchi)
-- [ ] Privacy manifest (`PrivacyInfo.xcprivacy`) e nutrition label
+- [x] Privacy manifest (`PrivacyInfo.xcprivacy`), privacy policy (`PRIVACY.md`) e risposte per la nutrition label (`docs/release/app-store-privacy.md`: "Data Not Collected"); da inserire in App Store Connect
 - [ ] TestFlight pubblico
 - [ ] Pubblicazione App Store
 
