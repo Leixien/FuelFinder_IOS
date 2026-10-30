@@ -11,7 +11,7 @@ settings:
   base:
     SWIFT_VERSION: "6.0"
     SWIFT_STRICT_CONCURRENCY: complete
-    MARKETING_VERSION: "0.1.0"
+    MARKETING_VERSION: "1.0.0"
     CURRENT_PROJECT_VERSION: "1"
 targets:
   Fuel:
@@ -31,6 +31,8 @@ targets:
         DataURL: $(DATA_URL)
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        # Only HTTPS through URLSession: exempt, so App Store Connect skips the export compliance question.
+        ITSAppUsesNonExemptEncryption: false
         NSLocationWhenInUseUsageDescription: La posizione serve a trovare i distributori più vicini e non lascia mai il telefono.
     settings:
       base:
