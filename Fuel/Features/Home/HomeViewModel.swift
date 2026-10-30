@@ -32,7 +32,23 @@ final class HomeViewModel {
     private(set) var payload: StationsPayload?
     /// Last known user position; the map frames the search around it.
     private(set) var origin: CLLocationCoordinate2D?
-    var selectedStationID: Station.ID?
+    var selectedStationID: Station.ID? {
+        didSet { selectedMatch = selectedStationID.flatMap(findMatch) }
+    }
+
+    /// Kept while the detail is open, even if the station scrolls off the map or the user drives away from it.
+    private(set) var selectedMatch: StationMatch?
+
+    /// What the map shows, which can reach well beyond the nearby search when zoomed out.
+    private(set) var mapMatches: [StationMatch] = []
+
+    var visibleArea: MapArea? {
+        didSet {
+            if visibleArea != oldValue {
+                updateMapMatches()
+            }
+        }
+    }
 
     var fuel: FuelType {
         didSet { persist(fuel.rawValue, Key.fuel) }
@@ -71,10 +87,6 @@ final class HomeViewModel {
         } else {
             nil
         }
-    }
-
-    var selectedMatch: StationMatch? {
-        result?.matches.first { $0.id == selectedStationID }
     }
 
     /// Cached data first, then a refresh and location updates side by side, until the calling task is cancelled.
@@ -129,17 +141,36 @@ final class HomeViewModel {
 
     private func persist(_ value: String, _ key: String) {
         defaults.set(value, forKey: key)
-        recompute()
+        recompute(clearingMissingSelection: true)
     }
 
-    private func recompute() {
+    private func findMatch(_ id: Station.ID) -> StationMatch? {
+        result?.matches.first { $0.id == id } ?? mapMatches.first { $0.id == id }
+    }
+
+    private func updateMapMatches() {
+        guard let payload, let visibleArea else {
+            mapMatches = []
+            return
+        }
+        mapMatches = StationRanking.inArea(
+            payload.stations, fuel: fuel, mode: mode, area: visibleArea, origin: origin, now: now
+        )
+    }
+
+    /// A new fuel or mode closes a detail whose station no longer sells it; moving or new data never does.
+    private func recompute(clearingMissingSelection: Bool = false) {
         staleBanner = payload
             .flatMap { DataFreshness.staleDays(pricesReferenceDate: $0.pricesReferenceDate, now: now) }
             .map { StaleBanner(days: $0, offline: refreshError == .network) }
         content = makeContent()
-        // A station that left the results (new fuel, mode or position) cannot stay open in the detail.
-        if selectedStationID != nil, selectedMatch == nil {
-            selectedStationID = nil
+        updateMapMatches()
+        if let id = selectedStationID {
+            if let match = findMatch(id) {
+                selectedMatch = match
+            } else if clearingMissingSelection {
+                selectedStationID = nil
+            }
         }
     }
 

@@ -165,6 +165,20 @@ struct HomeViewModelTests {
         #expect(isResults(model))
     }
 
+    @Test func mapShowsStationsBeyondTheSearchRadius() async throws {
+        let model = try HomeViewModel(environment: environment(transport: serving(Fixture.sample)), defaults: defaults)
+        #expect(await run(model) { model.result?.cheapest != nil })
+        let nearbyIDs = Set(model.result?.matches.map(\.id) ?? [])
+
+        // Zoomed out over Campania: far more than the 5 km search.
+        model.visibleArea = MapArea(center: PreviewData.origin, latitudeDelta: 1.5, longitudeDelta: 1.5)
+
+        #expect(model.mapMatches.count > nearbyIDs.count)
+        let far = try #require(model.mapMatches.first { !nearbyIDs.contains($0.id) })
+        model.selectedStationID = far.id
+        #expect(model.selectedMatch?.id == far.id)
+    }
+
     @Test func staleBannerFromReferenceDate() async {
         let data = Fixture.payload(pricesReferenceDate: "2026-10-20")
         let model = HomeViewModel(environment: environment(transport: serving(data)), defaults: defaults)

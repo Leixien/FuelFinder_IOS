@@ -12,8 +12,27 @@ struct NearbyResult: Sendable, Equatable {
     let cheapest: StationMatch?
 }
 
+/// The region the map shows, kept free of MapKit so the domain stays testable.
+struct MapArea: Sendable, Equatable {
+    let center: CLLocationCoordinate2D
+    let latitudeDelta: Double
+    let longitudeDelta: Double
+
+    func contains(_ coordinate: CLLocationCoordinate2D) -> Bool {
+        abs(coordinate.latitude - center.latitude) <= latitudeDelta / 2
+            && abs(coordinate.longitude - center.longitude) <= longitudeDelta / 2
+    }
+
+    static func == (lhs: MapArea, rhs: MapArea) -> Bool {
+        lhs.center.latitude == rhs.center.latitude && lhs.center.longitude == rhs.center.longitude
+            && lhs.latitudeDelta == rhs.latitudeDelta && lhs.longitudeDelta == rhs.longitudeDelta
+    }
+}
+
 enum StationRanking {
     static let radii: [Double] = [5000, 10000, 25000]
+    /// Pins a zoomed-out map can show and still be read; there are about 22,000 stations in Italy.
+    static let mapLimit = 150
     /// MIMIT keeps republishing the last price a station reported, even years old.
     static let maxPriceAge: TimeInterval = 7 * 24 * 3600
 
@@ -63,5 +82,27 @@ enum StationRanking {
             matches: sort == .price ? matches.sorted(by: byPrice) : matches,
             cheapest: qualified.min(by: byPrice)
         )
+    }
+
+    /// Stations on screen, capped to `limit`: fresh prices first, then the cheapest, so a zoomed-out map
+    /// still answers "where is it cheaper". Distance is from the user when known, else from the map centre.
+    static func inArea( // swiftlint:disable:this function_parameter_count
+        _ stations: [Station],
+        fuel: FuelType,
+        mode: ServiceMode,
+        area: MapArea,
+        origin: CLLocationCoordinate2D?,
+        now: Date,
+        limit: Int = mapLimit
+    ) -> [StationMatch] {
+        let from = origin ?? area.center
+        let matches = stations.compactMap { station -> StationMatch? in
+            guard area.contains(station.coordinate),
+                  let price = StationFilter.price(of: fuel, mode: mode, at: station, now: now)
+            else { return nil }
+            return StationMatch(station: station, price: price, distance: DistanceCalculator.distance(from: from, to: station.coordinate))
+        }
+        let rank = { (match: StationMatch) in (isFresh(match.price, now: now) ? 0 : 1, match.price.price, match.distance) }
+        return Array(matches.sorted { rank($0) < rank($1) }.prefix(limit))
     }
 }
