@@ -65,7 +65,7 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 
 ## Decisioni da confermare
 - Nome di lavoro "Fuel" e bundle id `com.leixien.fuel`: provvisori.
-- Cluster delle annotazioni: non servono. I pin sono solo i distributori nel raggio di ricerca (max 25 km, qualche centinaio), spostare la mappa non ne carica altri. Scartati: clustering manuale e wrapper UIKit. Se arriva "Cerca in quest'area" la questione si riapre.
+- Cluster delle annotazioni: non servono. La mappa mostra i distributori dell'area inquadrata, al massimo 150 (prima i prezzi recenti, poi i più economici); card e lista restano sulla ricerca "vicino a te". Scartati: clustering manuale e wrapper UIKit (decisione dell'utente dopo la prova su iPhone, 2026-10-30).
 - Tornare al tema di sistema ripresenta il foglio dei risultati: `preferredColorScheme(nil)` non aggiorna un foglio già presentato (limite SwiftUI). Scartato: wrapper UIKit su `overrideUserInterfaceStyle`.
 - Prezzo più vecchio di 7 giorni: resta in lista con età in arancione ma non vince la card (decisione dell'utente).
 

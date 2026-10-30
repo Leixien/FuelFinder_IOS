@@ -32,6 +32,13 @@ struct HomeView: View {
             .safeAreaPadding(.bottom, compactHeight)
             .overlay(alignment: .top) { topBar }
             .mapScope(mapScope)
+            // Pins follow what is on screen once the user stops moving the map.
+            .onMapCameraChange(frequency: .onEnd) { context in
+                let region = context.region
+                model.visibleArea = MapArea(
+                    center: region.center, latitudeDelta: region.span.latitudeDelta, longitudeDelta: region.span.longitudeDelta
+                )
+            }
             .onChange(of: searchKey) {
                 // Never yank the map away from someone who panned it; the location button recentres.
                 guard !camera.positionedByUser, let area = searchArea else { return }
@@ -90,9 +97,12 @@ struct HomeView: View {
         }
     }
 
+    /// Stations in the visible area (or the nearby list before the map reports one), minus the cheapest,
+    /// which is drawn last so it stays on top.
     private var otherMatches: [StationMatch] {
         let cheapestID = model.result?.cheapest?.id
-        return (model.result?.matches ?? []).filter { $0.id != cheapestID }
+        let shown = model.mapMatches.isEmpty ? (model.result?.matches ?? []) : model.mapMatches
+        return shown.filter { $0.id != cheapestID }
     }
 
     private func pin(_ match: StationMatch, isBest: Bool) -> some MapContent {

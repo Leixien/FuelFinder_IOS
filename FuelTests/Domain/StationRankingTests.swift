@@ -92,6 +92,42 @@ struct StationRankingTests {
         #expect(result.matches.first?.price.price == 1.90)
     }
 
+    // MARK: visible map area
+
+    private let naples = MapArea(
+        center: CLLocationCoordinate2D(latitude: 40.85, longitude: 14.27), latitudeDelta: 0.2, longitudeDelta: 0.2
+    )
+
+    private func visible(_ stations: [Station], limit: Int = 150) -> [StationMatch] {
+        StationRanking.inArea(stations, fuel: .benzina, mode: .selfService, area: naples, origin: nil, now: now, limit: limit)
+    }
+
+    @Test func areaKeepsOnlyStationsOnScreen() {
+        let inside = Station.stub(id: 1, lat: 40.90, prices: [.stub(.benzina, 1.80, updatedAt: now)])
+        let outside = Station.stub(id: 2, lat: 41.20, prices: [.stub(.benzina, 1.70, updatedAt: now)])
+
+        #expect(visible([inside, outside]).map(\.id) == [1])
+    }
+
+    @Test func areaCapKeepsFreshCheapestFirst() {
+        let stale = Station.stub(id: 1, prices: [.stub(.benzina, 1.50, updatedAt: now.addingTimeInterval(-30 * 86400))])
+        let cheap = Station.stub(id: 2, prices: [.stub(.benzina, 1.70, updatedAt: now)])
+        let dear = Station.stub(id: 3, prices: [.stub(.benzina, 1.90, updatedAt: now)])
+
+        #expect(visible([stale, dear, cheap], limit: 2).map(\.id) == [2, 3])
+    }
+
+    @Test func areaDistanceIsFromTheUserWhenKnown() {
+        let station = Station.stub(lat: 40.86, prices: [.stub(.benzina, 1.80, updatedAt: now)])
+        let user = CLLocationCoordinate2D(latitude: 40.85, longitude: 14.27)
+
+        let match = StationRanking.inArea(
+            [station], fuel: .benzina, mode: .selfService, area: naples, origin: user, now: now, limit: 150
+        ).first
+
+        #expect((1000 ... 1300).contains(match?.distance ?? 0))
+    }
+
     @Test func sortByPriceAndByDistance() {
         let nearExpensive = Station.stub(id: 1, lat: 40.86, prices: [.stub(.benzina, 1.90, updatedAt: now)])
         let farCheap = Station.stub(id: 2, lat: 40.88, prices: [.stub(.benzina, 1.70, updatedAt: now)])
