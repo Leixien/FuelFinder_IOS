@@ -40,7 +40,7 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 
 ## Fase 3 — Rilascio
 - [ ] Icona app e screenshot store
-- [ ] Scelta del nome definitivo (verifica disponibilità su App Store e marchi)
+- [x] Nome definitivo: **Refyl** (2026-10-30). App Store IT/US: nessuna app con questo nome. TMview (EUIPO, UIBM, WIPO): nessun marchio REFYL; simili REFYLL/REFYLD solo in classi 3/21/35. Rischio noto e accettato dall'utente: suona come "refill", registrato in classe 9/42 (es. EUIPO 018284885 BM Ventures, UIBM REFILL S.R.L.). Prima di depositare il marchio, parere di un consulente. Domini liberi: `refyl.app`, `refyl.it`. Testi per lo store: `docs/release/app-store-listing.md`
 - [x] Privacy manifest (`PrivacyInfo.xcprivacy`), privacy policy (`PRIVACY.md`) e risposte per la nutrition label (`docs/release/app-store-privacy.md`: "Data Not Collected"); da inserire in App Store Connect
 - [ ] TestFlight pubblico
 - [ ] Pubblicazione App Store
@@ -64,7 +64,7 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 - [x] Nullabilità: i campi stringa sono sempre presenti, mai `null`, eventualmente vuoti (oggi `name` vuoto per ~10 impianti: la UI deve gestirlo)
 
 ## Decisioni da confermare
-- Nome di lavoro "Fuel" e bundle id `com.leixien.fuel`: provvisori.
+- Nome pubblico "Refyl" e bundle id di default `com.leixien.refyl` (sovrascrivibile in `Config/Local.xcconfig`); target, scheme e cartelle restano `Fuel` per non toccare progetto e CI.
 - Cluster delle annotazioni: non servono. La mappa mostra i distributori dell'area inquadrata, al massimo 150 (prima i prezzi recenti, poi i più economici); card e lista restano sulla ricerca "vicino a te". Scartati: clustering manuale e wrapper UIKit (decisione dell'utente dopo la prova su iPhone, 2026-10-30).
 - Tornare al tema di sistema ripresenta il foglio dei risultati: `preferredColorScheme(nil)` non aggiorna un foglio già presentato (limite SwiftUI). Scartato: wrapper UIKit su `overrideUserInterfaceStyle`.
 - Liquid Glass (decisione dell'utente, 2026-10-30): minimo iOS 17 invariato; chip, controlli dell'angolo, foglio e "Indicazioni" in Liquid Glass da iOS 26 (`DesignSystem/Glass.swift`), materiale sfocato e foglio opaco sotto. Prezzi e pin restano su superfici piene per la leggibilità in auto. Scartato: alzare il minimo a iOS 26.
