@@ -25,7 +25,7 @@ targets:
     info:
       path: Fuel/Info.plist
       properties:
-        CFBundleDisplayName: Fuel
+        CFBundleDisplayName: Refyl
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         DataURL: $(DATA_URL)

@@ -1,6 +1,6 @@
-# Fuel — app iOS prezzi carburanti (open source)
+# Refyl — app iOS prezzi carburanti (open source)
 
-> Nome di lavoro: **Fuel**. È un placeholder: va scelto un nome definitivo prima della pubblicazione su App Store. Non usare "Prezzi Benzina" (marchio registrato di Prezzi Benzina S.r.l.).
+> Nome definitivo: **Refyl** (scelto il 2026-10-30; nel codice resta il nome di lavoro `Fuel`). Non usare "Prezzi Benzina" (marchio registrato di Prezzi Benzina S.r.l.).
 
 ## Cos'è
 

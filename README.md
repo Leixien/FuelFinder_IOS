@@ -1,8 +1,8 @@
-# Fuel (iOS)
+# Refyl (iOS)
 
 App iOS open source per consultare i prezzi dei carburanti dei distributori italiani, basata sui dati ufficiali dell'Osservaprezzi Carburanti del MIMIT. Nessun backend, nessun account, nessuna analytics.
 
-> "Fuel" è un nome di lavoro provvisorio.
+> Il target Xcode e le cartelle si chiamano ancora `Fuel`: è il nome di lavoro, l'app installata e lo store usano **Refyl**.
 
 <!-- Screenshot: in arrivo -->
 
