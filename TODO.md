@@ -44,6 +44,7 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 - [x] Kit di pubblicazione (2026-10-30): descrizioni IT/EN, URL, età, diritti sui contenuti, note per la revisione e checklist in `docs/release/app-store-submission.md`; `ITSAppUsesNonExemptEncryption = false`; versione 1.0.0
 - [x] Nome definitivo: **Refyl** (2026-10-30). App Store IT/US: nessuna app con questo nome. TMview (EUIPO, UIBM, WIPO): nessun marchio REFYL; simili REFYLL/REFYLD solo in classi 3/21/35. Rischio noto e accettato dall'utente: suona come "refill", registrato in classe 9/42 (es. EUIPO 018284885 BM Ventures, UIBM REFILL S.R.L.). Prima di depositare il marchio, parere di un consulente. Domini liberi: `refyl.app`, `refyl.it`. Testi per lo store: `docs/release/app-store-listing.md`
 - [x] Privacy manifest (`PrivacyInfo.xcprivacy`), privacy policy (`PRIVACY.md`) e risposte per la nutrition label (`docs/release/app-store-privacy.md`: "Data Not Collected"); da inserire in App Store Connect
+- [x] Menu carburanti con una riga di spiegazione sotto ogni voce (2026-10-31): `Toggle` nel `Menu` invece di `Picker`, perché solo `Button` e `Toggle` mostrano il secondo `Text` come sottotitolo
 - [ ] TestFlight pubblico (serve account Apple Developer: passi in `docs/release/app-store-submission.md`)
 - [ ] Pubblicazione App Store
 
@@ -57,6 +58,7 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 - [ ] Ricerca per comune/indirizzo
 - [ ] CarPlay
 - [ ] Apple Watch
+- [ ] Prezzi segnalati dagli utenti: servirebbe un backend, contro le regole del progetto (nessun backend, nessun account). Da discutere in una issue prima di qualunque lavoro
 
 ## Richieste a fuel-data
 - [x] URL di produzione: `https://leixien.github.io/FuelFinder_DATA/stations.json` (GitHub Pages, gzip + ETag)
@@ -88,6 +90,8 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 ## Note di sessione
 - 2026-10-29: Fase 0 bootstrap (tranne CI non ancora verificata). Build, unit test (Swift Testing), UI smoke test e `swiftlint --strict` verdi su iPhone 17 / iOS 27. Se un test fallisce, `xcodebuild test` può bloccarsi su `simctl diagnose`: usare `-collect-test-diagnostics never` in locale.
 - 2026-10-29: Fase 1 completata. CI verde al primo push. Fixture: 30 stazioni reali di NA/SA/CE/AV/BN dai CSV MIMIT del 2026-10-28 (separatore attuale `|`).
+
+- 2026-10-31: mobile-mcp lascia sul simulatore un runner XCTest (`com.mobilenext.devicekit-iosUITests.xctrunner`) che fa bloccare `xcodebuild test`. Prima dei test: `xcrun simctl terminate <udid> com.mobilenext.devicekit-iosUITests.xctrunner`, oppure usare un altro simulatore.
 
 ## Blocchi noti
 - [x] `stations.json` online dal 2026-10-30: il MIMIT blocca i runner GitHub, quindi `FuelFinder_DATA` scarica dall'homelab del maintainer e GitHub pubblica su Pages. L'app ha dati reali senza `-uiTesting`.

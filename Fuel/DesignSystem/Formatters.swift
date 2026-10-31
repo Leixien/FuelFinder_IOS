@@ -87,4 +87,18 @@ extension FuelType {
         case .gasolioSpecial: "Gasolio special"
         }
     }
+
+    /// One line under the name in the fuel menu: GNL, HVO and "special" mean little to most drivers.
+    var explanation: LocalizedStringResource {
+        switch self {
+        case .benzina: "Senza piombo 95"
+        case .gasolio: "Diesel normale"
+        case .gpl: "Per auto a GPL"
+        case .metano: "Gas compresso, al kg"
+        case .gnl: "Gas liquido per camion, al kg"
+        case .hvo: "Diesel rinnovabile"
+        case .benzinaSpecial: "98–100 ottani o additivata"
+        case .gasolioSpecial: "Diesel additivato"
+        }
+    }
 }

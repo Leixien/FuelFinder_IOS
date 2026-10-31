@@ -51,6 +51,16 @@
         }
       }
     },
+    "98–100 ottani o additivata": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "98–100 octane or additives"
+          }
+        }
+      }
+    },
     "App": {
       "localizations": {
         "en": {
@@ -221,6 +231,36 @@
         }
       }
     },
+    "Diesel additivato": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diesel with additives"
+          }
+        }
+      }
+    },
+    "Diesel normale": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regular diesel"
+          }
+        }
+      }
+    },
+    "Diesel rinnovabile": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renewable diesel"
+          }
+        }
+      }
+    },
     "Distributore": {
       "localizations": {
         "en": {
@@ -257,6 +297,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "LPG"
+          }
+        }
+      }
+    },
+    "Gas compresso, al kg": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compressed gas, per kg"
+          }
+        }
+      }
+    },
+    "Gas liquido per camion, al kg": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Liquefied gas for trucks"
           }
         }
       }
@@ -441,6 +501,16 @@
         }
       }
     },
+    "Per auto a GPL": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autogas for LPG cars"
+          }
+        }
+      }
+    },
     "Più economici": {
       "localizations": {
         "en": {
@@ -557,6 +627,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Self-service"
+          }
+        }
+      }
+    },
+    "Senza piombo 95": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unleaded 95"
           }
         }
       }
