@@ -14,12 +14,12 @@ struct FilterChips: View {
     private var chips: some View {
         HStack(spacing: 8) {
             Menu {
-                Picker(selection: $fuel) {
-                    ForEach(FuelType.allCases, id: \.self) { fuel in
-                        Text(fuel.localizedName).tag(fuel)
+                // Toggles, not a Picker: only Button and Toggle labels show the second Text as a subtitle.
+                ForEach(FuelType.allCases, id: \.self) { option in
+                    Toggle(isOn: Binding(get: { fuel == option }, set: { if $0 { fuel = option } })) {
+                        Text(option.localizedName)
+                        Text(option.explanation)
                     }
-                } label: {
-                    EmptyView()
                 }
             } label: {
                 chip {
