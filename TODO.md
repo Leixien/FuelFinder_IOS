@@ -40,10 +40,11 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 
 ## Fase 3 — Rilascio
 - [x] Icona app (2026-10-30): R + strada + pompa corallo, aspetto chiaro principale. `Fuel/Resources/AppIcon.icon` (Icon Composer, Liquid Glass a livelli, iOS 26+; scuro via `fill-specializations` per livello) e `AppIcon.appiconset` (PNG chiaro/scuro/tinto per iOS 17–18). Sorgenti SVG e livelli in `docs/brand/icon/`; anteprime: `ictool` in `Icon Composer.app/Contents/Executables`
-- [ ] Screenshot store
+- [x] Screenshot store (2026-10-30): 5 per lingua (IT/EN), iPhone 6,9" con didascalie, in `docs/release/screenshots/` con lo script per rifarli
+- [x] Kit di pubblicazione (2026-10-30): descrizioni IT/EN, URL, età, diritti sui contenuti, note per la revisione e checklist in `docs/release/app-store-submission.md`; `ITSAppUsesNonExemptEncryption = false`; versione 1.0.0
 - [x] Nome definitivo: **Refyl** (2026-10-30). App Store IT/US: nessuna app con questo nome. TMview (EUIPO, UIBM, WIPO): nessun marchio REFYL; simili REFYLL/REFYLD solo in classi 3/21/35. Rischio noto e accettato dall'utente: suona come "refill", registrato in classe 9/42 (es. EUIPO 018284885 BM Ventures, UIBM REFILL S.R.L.). Prima di depositare il marchio, parere di un consulente. Domini liberi: `refyl.app`, `refyl.it`. Testi per lo store: `docs/release/app-store-listing.md`
 - [x] Privacy manifest (`PrivacyInfo.xcprivacy`), privacy policy (`PRIVACY.md`) e risposte per la nutrition label (`docs/release/app-store-privacy.md`: "Data Not Collected"); da inserire in App Store Connect
-- [ ] TestFlight pubblico
+- [ ] TestFlight pubblico (serve account Apple Developer: passi in `docs/release/app-store-submission.md`)
 - [ ] Pubblicazione App Store
 
 ## Backlog (post-MVP)
@@ -69,6 +70,7 @@ Design: `docs/superpowers/specs/2026-10-29-fase2-ui-design.md` (mappa + foglio p
 - Cluster delle annotazioni: non servono. La mappa mostra i distributori dell'area inquadrata, al massimo 150 (prima i prezzi recenti, poi i più economici); card e lista restano sulla ricerca "vicino a te". Scartati: clustering manuale e wrapper UIKit (decisione dell'utente dopo la prova su iPhone, 2026-10-30).
 - Tornare al tema di sistema ripresenta il foglio dei risultati: `preferredColorScheme(nil)` non aggiorna un foglio già presentato (limite SwiftUI). Scartato: wrapper UIKit su `overrideUserInterfaceStyle`.
 - Liquid Glass (decisione dell'utente, 2026-10-30): minimo iOS 17 invariato; chip, controlli dell'angolo, foglio e "Indicazioni" in Liquid Glass da iOS 26 (`DesignSystem/Glass.swift`), materiale sfocato e foglio opaco sotto. Prezzi e pin restano su superfici piene per la leggibilità in auto. Scartato: alzare il minimo a iOS 26.
+- Disponibilità sullo store: proposti tutti i paesi con scheda IT + EN (turisti in Italia con account esteri); alternativa: solo Italia. Stato "trader" del DSA da dichiarare in App Store Connect: scelta dell'utente.
 - Prezzo più vecchio di 7 giorni: resta in lista con età in arancione ma non vince la card (decisione dell'utente).
 
 - Swift 6 language mode (`SWIFT_VERSION = 6.0`) invece di Swift 5.10 + `SWIFT_STRICT_CONCURRENCY = complete`: stesso controllo, ma violazioni come errori. Alternativa scartata perché Xcode 27 / Swift 6.4 è già lo standard.
