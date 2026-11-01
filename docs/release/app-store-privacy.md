@@ -1,10 +1,11 @@
 # App Store Connect: privacy
 
-Risposte da dare in App Store Connect → App Privacy. Coerenti con `Fuel/Resources/PrivacyInfo.xcprivacy` e `PRIVACY.md`: se una delle tre cambia, vanno aggiornate tutte.
+Risposte da dare in App Store Connect → App Privacy. Coerenti con `Fuel/Resources/PrivacyInfo.xcprivacy`, `PRIVACY.md` e la pagina privacy del sito (repo `Leixien/refyl-site`): se una cambia, vanno aggiornate tutte.
 
 ## Privacy Policy URL
 
-`https://github.com/Leixien/FuelFinder_IOS/blob/main/PRIVACY.md`
+- Italiano: `https://leixien.github.io/refyl-site/privacy/`
+- English (U.S.): `https://leixien.github.io/refyl-site/en/privacy/`
 
 ## Data Collection
 
