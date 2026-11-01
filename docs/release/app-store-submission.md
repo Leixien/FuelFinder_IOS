@@ -5,9 +5,9 @@ Passi in ordine, dalla firma all'invio in revisione. Testi: `app-store-listing.m
 ## 1. Account e identificativi (una volta)
 
 - [ ] Apple Developer Program attivo (99 €/anno). Persona fisica va bene: il nome dell'account compare sotto il nome dell'app.
-- [ ] developer.apple.com → Identifiers → App ID esplicito `com.leixien.refyl` (nessuna capability da attivare).
+- [ ] developer.apple.com → Identifiers → App ID esplicito `com.binarybuilders.refyl` (nessuna capability da attivare).
 - [ ] `Config/Local.xcconfig` (gitignored) da `Local.xcconfig.example` con il proprio `DEVELOPMENT_TEAM`; il bundle id resta quello di `Shared.xcconfig`.
-- [ ] App Store Connect → App → "+" Nuova app: piattaforma iOS, nome `Refyl: Prezzi Carburante`, lingua principale Italiano, bundle id `com.leixien.refyl`, SKU `refyl-ios`, accesso completo.
+- [ ] App Store Connect → App → "+" Nuova app: piattaforma iOS, nome `Refyl: Prezzi Carburante`, lingua principale Italiano, bundle id `com.binarybuilders.refyl`, SKU `com.binarybuilders.refyl`, accesso completo.
 
 ## 2. Build
 
@@ -28,7 +28,7 @@ Passi in ordine, dalla firma all'invio in revisione. Testi: `app-store-listing.m
 ## 4. Scheda in App Store Connect
 
 - [ ] Testi IT e localizzazione EN (U.S.) da `app-store-listing.md`.
-- [ ] Screenshot iPhone 6,9" da `screenshots/it` e `screenshots/en` (Apple ridimensiona da soli per gli schermi più piccoli). Niente iPad: l'app è solo iPhone.
+- [ ] Screenshot da `screenshots/it` e `screenshots/en`. Da novembre 2026 App Store Connect chiede la taglia "iPhone with Dynamic Island (medium display)": 1206×2622 o 1179×2556, non più il 6,9". Si ottengono dai nostri 1320×2868 con `sips -z 2622 1206`. Niente iPad: l'app è solo iPhone.
 - [ ] Icona: arriva dalla build, nessun upload.
 - [ ] App Privacy: risposte da `app-store-privacy.md` → "Data Not Collected".
 - [ ] Classificazione per età: tutte le voci "No" / "Nessuno" → **4+**. Nessun contenuto generato da utenti, nessun web browser, nessun acquisto.
