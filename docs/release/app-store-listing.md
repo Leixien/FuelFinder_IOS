@@ -101,9 +101,9 @@ The code is public on GitHub: github.com/Leixien/FuelFinder_IOS
 
 | Campo | Valore |
 |---|---|
-| Support URL | `https://github.com/Leixien/FuelFinder_IOS/issues` |
-| Marketing URL | `https://github.com/Leixien/FuelFinder_IOS` (facoltativo) |
-| Privacy Policy URL | `https://github.com/Leixien/FuelFinder_IOS/blob/main/PRIVACY.md` |
+| Support URL | IT `https://leixien.github.io/refyl-site/supporto/`, EN `https://leixien.github.io/refyl-site/en/support/` |
+| Marketing URL | IT `https://leixien.github.io/refyl-site/`, EN `https://leixien.github.io/refyl-site/en/` |
+| Privacy Policy URL | IT `https://leixien.github.io/refyl-site/privacy/`, EN `https://leixien.github.io/refyl-site/en/privacy/` (sito: repo `Leixien/refyl-site`) |
 | Copyright | `2026 ` + nome dell'account sviluppatore (come appare sotto il nome dell'app) |
 | Prezzo | Gratis, nessun acquisto in-app |
 

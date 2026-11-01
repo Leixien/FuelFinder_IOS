@@ -13,7 +13,7 @@ L'app non raccoglie, non salva su server e non condivide dati personali.
 
 Fonte dei prezzi: MIMIT – Osservaprezzi Carburanti (licenza IODL 2.0).
 
-Domande: apri una issue su https://github.com/Leixien/FuelFinder_IOS/issues.
+Versione completa, anche per il sito: https://leixien.github.io/refyl-site/privacy/. Domande: contactus@binarybuilders.dev.
 
 ## English
 
@@ -26,4 +26,4 @@ The app does not collect, store on servers, or share personal data.
 
 Price source: MIMIT – Osservaprezzi Carburanti (IODL 2.0 licence).
 
-Questions: open an issue at https://github.com/Leixien/FuelFinder_IOS/issues.
+Full version, including the website: https://leixien.github.io/refyl-site/en/privacy/. Questions: contactus@binarybuilders.dev.
